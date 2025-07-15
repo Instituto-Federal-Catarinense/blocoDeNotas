@@ -48,3 +48,17 @@ p {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
+button {
+    font-family: sans-serif;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    color: #007bff;;
+    font-size: 15pt;
+    font-weight: bold;
+
+}
+
+#LimparNotas:hover {
+    color: #0050a7;;
+}

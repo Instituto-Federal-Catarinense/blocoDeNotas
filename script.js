@@ -9,6 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
     const blocoDeNotas = document.getElementById('blocoDeNotas');
 
+    //adicionando o botao
+    const btnLimparNotas = document.getElementById('limparNotas');
+    //Adicionando um evento de clique ao botao "Limpar Notas"
+    btnLimparNotas.addEventListener('click', () => {
+        
+    //quando clica o botao, o conteudo eh limpado
+    blocoDeNotas.value = '';
+    
+    localStorage.removeItem('minhaNota'); //Remove o item "minhaNota"
+    console.log("Notas Limpas!"); //mesagem para confirmar ação
+    });
+
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
     // O 'localStorage' é um recurso do navegador que permite salvar informações

@@ -24,6 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
         blocoDeNotas.value = notaSalva;
     }
 
+    const limparNotas = document.getElementById('limparNotas');
+    limparNotas.addEventListener('click', () => {
+        blocoDeNotas.value = '';
+        localStorage.removeItem('minhaNota');
+    })
+
     // 3. ADICIONANDO UM 'EVENTLISTENER'
     // ---------------------------------
     // Agora, a parte principal: queremos fazer algo sempre que o usuário digitar.

@@ -1,13 +1,23 @@
 // Espera o conteúdo da página carregar completamente antes de executar o script.
 // É uma boa prática para evitar erros de JavaScript tentando acessar elementos
-// que ainda não existem na página.
+// que ainda não existem na página. 
+//() => {}, arrow function 
 document.addEventListener('DOMContentLoaded', () => {
 
     // 1. SELECIONANDO O ELEMENTO
     // ----------------------------
     // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
+    // Declarar o elemento como constante funciona como uma referência, tipo um ponto de partida. 
+    // Fica mais fácil, pois assim não tem que ficar chamando pelo id toda vida
     const blocoDeNotas = document.getElementById('blocoDeNotas');
+
+    const btnLimparNotas = document.getElementById('btnLimparNotas');
+    btnLimparNotas.addEventListener('click', () => {
+        blocoDeNotas.value = '';
+        localStorage.removeItem('minhaNota');
+    })
+    console.log=("Notas limpas e removidas do localStorage")
 
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
@@ -15,9 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // que persistem mesmo depois que o navegador é fechado.
     // Usamos 'localStorage.getItem()' para buscar um item salvo.
     // Aqui, estamos procurando por um item que salvamos com a chave 'minhaNota'.
+    // Mesma vibe da constante anterior, estabelcer como um "elemento" javascript mesmo
     const notaSalva = localStorage.getItem('minhaNota');
 
-    // Verificamos se encontramos alguma nota salva.
+
+
+    // Verificamos se encontramos alguma nota salva, tipo se ela existe
     if (notaSalva) {
         // Se 'notaSalva' não for nulo (ou seja, existe algo salvo),
         // nós colocamos o valor salvo de volta no nosso 'blocoDeNotas'.

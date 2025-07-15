@@ -1,6 +1,8 @@
 // Espera o conteúdo da página carregar completamente antes de executar o script.
 // É uma boa prática para evitar erros de JavaScript tentando acessar elementos
 // que ainda não existem na página.
+//                                      quando for carregado
+//                                     /          ________função
 document.addEventListener('DOMContentLoaded', () => {
 
     // 1. SELECIONANDO O ELEMENTO
@@ -8,6 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
     const blocoDeNotas = document.getElementById('blocoDeNotas');
+    //const do elemento com id  limpablocis
+    const btnlimparNota = document.getElementById ('limpaNota');
+
+    //event listener para quando clicar 
+    btnlimparNota.addEventListener('click',()=>{
+        blocoDeNotas.value ='';//ta dando esse valor
+        localStorage.removeItem('minhaNota');//remove as nota 
+        console.log("NOTAS LIMPAS !!");//pra gentepoder ver no console se ta dando certo 
+
+    })
+
 
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
@@ -21,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (notaSalva) {
         // Se 'notaSalva' não for nulo (ou seja, existe algo salvo),
         // nós colocamos o valor salvo de volta no nosso 'blocoDeNotas'.
+        //se tiver alguma notaSalva, ele vai trocar o valor pelo valor da nota salva, senao nao 
         blocoDeNotas.value = notaSalva;
     }
 

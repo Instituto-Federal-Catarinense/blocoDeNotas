@@ -8,6 +8,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    transition: 0.5s;
 }
 
 /* O contêiner principal que centraliza nosso conteúdo */
@@ -51,14 +52,32 @@ p {
 
 button {
     font-family: sans-serif;
-    background-color: rgb(255, 255, 255);
+    background-color: #007bff;
     border: none;
-    color: #007bff;;
+    color: #ffffff;
     font-size: 15pt;
     font-weight: bold;
+    transition: 0.2s;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 2px;
+    cursor: pointer;
 
 }
 
 #LimparNotas:hover {
-    color: #0050a7;;
+    transition: 0.2s;
+    background-color: #ff0000;
+}
+
+#SalvarNotas:hover {
+    transition: 0.2s;
+    background-color: #00ff2a;
+
+}
+
+#ApagarTexto:hover {
+    transition: 0.2s;
+    background-color: #ff8800;
+
 }

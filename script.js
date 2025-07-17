@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
     const blocoDeNotas = document.getElementById('blocoDeNotas');
-    const btnLimparNotas = document.getElementById('limparNotas');
+    const btnLimparNotas = document.getElementById('btnLimparNotas');
+    const btnSalvarNotas = document.getElementById('btnSalvarNotas');
 
     // Adicionar um evento de clique ao botão "Limpar Notas"
     btnLimparNotas.addEventListener('click', () => {
@@ -31,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (notaSalva) {
         // Se 'notaSalva' não for nulo (ou seja, existe algo salvo),
         // nós colocamos o valor salvo de volta no nosso 'blocoDeNotas'.
-        blocoDeNotas.value = notaSalva;
+        btnSalvarNotas.value = notaSalva;
     }
 
     // 3. ADICIONANDO UM 'EVENTLISTENER'
@@ -44,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
     //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
     //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
+    btnSalvarNotas.addEventListener('click', () => {
         // 4. SALVANDO DADOS NO LOCALSTORAGE
         // -----------------------------------
         // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas

@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const blocoDeNotas = document.getElementById('blocoDeNotas');
     const btnLimparNotas = document.getElementById('btnLimparNotas');
     const btnSalvarNotas = document.getElementById('btnSalvarNotas');
+    const btnDarkMode = document.getElementById('btnDarkMode');
 
     // Adicionar um evento de clique ao botão "Limpar Notas"
     btnLimparNotas.addEventListener('click', () => {
@@ -59,6 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('minhaNota', blocoDeNotas.value);
 
         console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
+    });
+    btnDarkMode.addEventListener('click', () => {
+        blocoDeNotas.classList.add("DarkMode") 
     });
 
 });

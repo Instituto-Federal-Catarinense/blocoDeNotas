@@ -10,15 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const blocoDeNotas = document.getElementById('blocoDeNotas');
 
     //adicionando o botao
-    const btnLimparNotas = document.getElementById('limparNotas');
+    const btnLimparNotas = document.getElementById('btnLimparNotas');
+
+    const btnSalvarNotas = document.getElementById('btnSalvarNotas');
     //Adicionando um evento de clique ao botao "Limpar Notas"
+
     btnLimparNotas.addEventListener('click', () => {
-        
-    //quando clica o botao, o conteudo eh limpado
-    blocoDeNotas.value = '';
-    
-    localStorage.removeItem('minhaNota'); //Remove o item "minhaNota"
-    console.log("Notas Limpas!"); //mesagem para confirmar ação
+
+        //quando clica o botao, o conteudo eh limpado
+        blocoDeNotas.value = '';
+
+        localStorage.removeItem('minhaNota'); //Remove o item "minhaNota"
+        console.log("Notas Limpas!"); //mesagem para confirmar ação
     });
 
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
@@ -58,8 +61,16 @@ document.addEventListener('DOMContentLoaded', () => {
         //   - O segundo é o VALOR que queremos salvar. 'blocoDeNotas.value' contém o texto
         //     que está atualmente na área de texto.
         localStorage.setItem('minhaNota', blocoDeNotas.value);
-
         console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
     });
+    // 5. ADICIONANDO FUNÇÃO PARA SALVAR NOTAS
+
+    btnSalvarNotas.addEventListener('click', () => {
+        // Quando o botão de salvar notas é clicado, salvamos o conteúdo do bloco de notas
+        blocoDeNotas.value = notaSalva;
+        console.log("Notas salvas!"); // Mensagem de confirmação no console
+    });
+
+
 
 });

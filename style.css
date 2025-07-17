@@ -49,8 +49,19 @@ p {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-#limparNotas{
+#btnLimparNotas{
     font-size: 20px;
     color: #740d22;
     border-radius: 6px;
+}
+#btnSalvarNotas{
+    font-size: 20px;
+    color: #0d741e;
+    border-radius: 6px;
+}
+
+.caracters{
+    font-style: italic;
+    color: #640b82;
+    font-size: 20px;
 }

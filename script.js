@@ -20,6 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Notas limpas!"); // Mensagem no console para confirmar que as notas foram removidas do Local Storage
     });
 
+    const botao = document.getElementById("themeButton");
+    botao.addEventListener("click", () => {
+        document.body.classList.toggle("escuro");
+        document.body.classList.toggle("claro");
+    
+        botao.textContent = document.body.classList.contains("escuro") 
+          ? "☀️Modo Claro" 
+          : "🌙Modo Escuro";
+    });
+
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
     // O 'localStorage' é um recurso do navegador que permite salvar informações

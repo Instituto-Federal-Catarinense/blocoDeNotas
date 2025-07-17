@@ -1,5 +1,5 @@
 /* Estilos gerais para a página */
-body {
+body{
     font-family: sans-serif;
     background-color: #f0f2f5;
     color: #333;
@@ -60,8 +60,12 @@ p {
     border-radius: 6px;
 }
 
-.caracters{
-    font-style: italic;
-    color: #640b82;
-    font-size: 20px;
+#themeButton{
+    font-size: 17px;
+    border-radius: 6px
+}
+
+body.escuro{
+    background-color: #000000e1;
+    color: white;
 }

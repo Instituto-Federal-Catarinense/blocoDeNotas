@@ -13,6 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
     //const do elemento com id  limpablocis
     const btnlimparNota = document.getElementById ('limpaNota');
 
+    const btnsalvaNota =  document.getElementById ('salvaNota');
+
+    const bntmudarcor = document.getElementById('mudarCor')
+
     //event listener para quando clicar 
     btnlimparNota.addEventListener('click',()=>{
         blocoDeNotas.value ='';//ta dando esse valor
@@ -48,7 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
     //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
     //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
     //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
+
+    // para ccriar  o botao salvar, tem que criar uma costante para o botao e musar o input para clack
+    btnsalvaNota.addEventListener('click', () => {
         // 4. SALVANDO DADOS NO LOCALSTORAGE
         // -----------------------------------
         // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas
@@ -63,5 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
     });
+
+    // 5 mudarCOE
+
+    bntmudarcor.addEventListener('click', () => {
+        // Aqui, vamos mudar a cor de fundo do bloco de notas para uma cor aleatória.
+        // Para isso, usamos 'Math.random()' para gerar um número aleatório e o convertemos
+        // em uma cor hexadecimal.
+        const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        blocoDeNotas.style.backgroundColor = randomColor; // Aplicamos a nova cor ao estilo do bloco de notas.
+    });
+
+
 
 });

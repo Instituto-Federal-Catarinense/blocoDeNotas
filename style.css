@@ -60,4 +60,25 @@ p {
    
 }
 
+#salvaNota {
+    width: 50%;
+    height: 50px;
+    padding: 15px;
+    border: 1px solid #6c34ce; 
+    border-radius: 50px;
+    background-color: #a093cc;
+   
+}
+
+#mudarCor {
+    width: 8%;
+    height: 50px;
+    padding: 15px;
+    border: 1px solid #6c34ce; 
+    border-radius: 50px;
+    background-color: #a093cc;
+   
+}
+
+
     

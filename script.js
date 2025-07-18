@@ -12,15 +12,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const blocoDeNotas = document.getElementById("blocoDeNotas");
   const btnLimparNotas = document.getElementById("btnLimparNotas");
   const btnSalvarNotas = document.getElementById("btnSalvarNotas");
+  const body = document.body;
+  const btnFundoRosa = document.getElementById("btnFundoRosa");
   
-  
+
   btnLimparNotas.addEventListener("click", () => {
     blocoDeNotas.value = "";
     localStorage.removeItem("minhaNota");
   });
   console.log = "Notas limpas e removidas do localStorage";
 
- 
+  //botão para o fundo rosa
+  btnFundoRosa.addEventListener("click", () => {
+    body.classList.toggle('FundoRosa')
+  })
 
   // 2. CARREGANDO DADOS DO LOCALSTORAGE
   // ------------------------------------

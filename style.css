@@ -46,3 +46,19 @@ p {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
+/* ====== BOTÕES ESTILIZADOS ====== */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    margin: 5px;
+    border-radius: 8px; /* ← Borda arredondada */
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.dark-theme {
+    background-color: blue;
+}

@@ -10,6 +10,16 @@ body {
     margin: 0;
 }
 
+.body-dark {
+    font-family: sans-serif;
+    background-color: #252d3a;
+    color: #fff9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
 /* O contêiner principal que centraliza nosso conteúdo */
 .container {
     background-color: #ffffff;

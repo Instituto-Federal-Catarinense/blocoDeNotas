@@ -21,12 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const btnsalvarnota = document.getElementById('salvarnota')
 
+    const btnmudartema = document.getElementById('mudartema')
+
     btnlimparnotas.addEventListener('click', () => {
         blocoDeNotas.value='';
         localStorage.removeItem('minhaNota');       
     });
 
-    
+    btnmudartema.addEventListener('click', () =>{
+        document.body.classList.add("body-dark");
+    } )
 
 
     // Verificamos se encontramos alguma nota salva.

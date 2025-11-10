@@ -8,6 +8,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* O contêiner principal que centraliza nosso conteúdo */
@@ -19,6 +20,7 @@ body {
     text-align: center;
     width: 90%;
     max-width: 600px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 h1 {
@@ -41,10 +43,103 @@ p {
     line-height: 1.5;
     box-sizing: border-box; /* Garante que o padding não aumente a largura total */
     resize: vertical; /* Permite que o usuário redimensione a altura */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 #blocoDeNotas:focus {
     outline: none;
     border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+#salvarNotas {
+    background-color: #34ff4f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+#limparNotas:hover {
+    background-color: #00ff22;
+    transition: all 0.3s ease;
+}
+
+#limparNotas {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+#limparNotas:hover {
+    background-color: #c82333;
+    transition: all 0.3s ease;
+}
+
+#alternarModo {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .container {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode h1 {
+    color: #66aaff;
+}
+
+body.dark-mode p {
+    color: #bbbbbb;
+}
+
+body.dark-mode #blocoDeNotas {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+    border: 1px solid #555;
+}
+
+body.dark-mode #blocoDeNotas:focus {
+    border-color: #66aaff;
+    box-shadow: 0 0 5px rgba(102, 170, 255, 0.5);
+}
+
+body.dark-mode #salvarNotas {
+    background-color: #28a745;
+}
+
+body.dark-mode #limparNotas {
+    background-color: #c82333;
+}
+
+body.dark-mode #limparNotas:hover {
+    background-color: #a71d2a;
+}
+
+body.dark-mode #alternarModo {
+    background-color: #0056b3;
 }

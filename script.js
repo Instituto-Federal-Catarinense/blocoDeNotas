@@ -8,6 +8,50 @@ document.addEventListener('DOMContentLoaded', () => {
     // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
     const blocoDeNotas = document.getElementById('blocoDeNotas');
+    const btnLimparNotas = document.getElementById('butao');
+    const salvanota = document.getElementById('salvanota');
+    const aumentaFonte = document.getElementById('persoNota');
+    const persoDiminui = document.getElementById('persoDiminui');
+    const modoEscuro = document.getElementById('modoEscuro');
+
+    
+    modoEscuro.addEventListener('click', () => {
+        // Alterna entre os modos escuro e claro adicionando ou removendo uma classe no body
+        document.body.classList.toggle('modo-escuro');
+    
+        // Opcional: salva a preferência do usuário
+        const estaEmModoEscuro = document.body.classList.contains('modo-escuro');
+        localStorage.setItem('modoEscuro', estaEmModoEscuro ? 'ativado' : 'desativado');
+    
+        console.log(`Modo escuro ${estaEmModoEscuro ? 'ativado' : 'desativado'}`);
+    });
+    
+
+    aumentaFonte.addEventListener('click', () => {
+        const estiloAtual = window.getComputedStyle(blocoDeNotas).fontSize;
+        const tamanhoAtual = parseFloat(estiloAtual);
+        const novoTamanho = tamanhoAtual + 2; // aumenta 2px
+    
+        blocoDeNotas.style.fontSize = `${novoTamanho}px`;
+        console.log(`Fonte aumentada para: ${novoTamanho}px`);
+    });
+
+    persoDiminui.addEventListener('click', () => {
+        const estiloAtual = window.getComputedStyle(blocoDeNotas).fontSize;
+        const tamanhoAtual = parseFloat(estiloAtual);
+        const novoTamanho = tamanhoAtual - 2; // diminui 2px
+    
+        blocoDeNotas.style.fontSize = `${novoTamanho}px`;
+        console.log(`Fonte aumentada para: ${novoTamanho}px`);
+    });
+    
+
+
+    btnLimparNotas.addEventListener('click', () => {
+        blocoDeNotas.value = '';
+        localStorage.removeItem('minhanota');
+        console.log("notas limpas");
+    });
 
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
@@ -34,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
     //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
     //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
+    salvanota.addEventListener('click', () => {
         // 4. SALVANDO DADOS NO LOCALSTORAGE
         // -----------------------------------
         // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas
@@ -49,5 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
     });
+
+    
 
 });

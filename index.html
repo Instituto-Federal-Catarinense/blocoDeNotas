@@ -8,11 +8,22 @@
 </head>
 <body>
 
+    <div>
+        <button onClick="alteracor" id="modoEscuro">Alterar modo</button>
     <div class="container">
         <h1>Meu Bloco de Notas</h1>
-        <p>Suas anotações são salvas automaticamente no seu navegador.</p>
+     
         
         <textarea id="blocoDeNotas" placeholder="Comece a digitar aqui..."></textarea>
+        <button onClick="limpar" id="butao">Limpar</button>
+        <button onClick="salvarNota" id="salvanota">Salvar nota</button>
+
+         <div>
+            <p>Personalize seu texto</p>
+          <button onClick="personaliza" id="persoNota">Aumenta a fonte</button>
+        <button onClick="personalizar" id="persoDiminui">Diminui a fonte</button>
+        </div>
+
     </div>
 
     <script src="script.js"></script>

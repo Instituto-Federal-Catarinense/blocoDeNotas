@@ -1,7 +1,7 @@
 /* Estilos gerais para a página */
 body {
     font-family: sans-serif;
-    background-color: #f0f2f5;
+    background-color: #ffebf5;
     color: #333;
     display: flex;
     justify-content: center;
@@ -20,13 +20,25 @@ body {
     width: 90%;
     max-width: 600px;
 }
+button{
+    background-color: #ffc3f0;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+button:hover{
+    background-color: #ff009d;
+    transition: all 0.5s;
+    color:#ffffff;
+}
 
 h1 {
-    color: #007bff;
+    color: #f3c1e0;
 }
 
 p {
-    color: #6c757d;
+    color: #ee4fb9;
     margin-bottom: 20px;
 }
 
@@ -45,6 +57,32 @@ p {
 
 #blocoDeNotas:focus {
     outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: #ff009d;
+    box-shadow: 0 0 5px rgba(255, 0, 200, 0.5);
+}
+/* Estilo padrão */
+body {
+    background-color: rgb(255, 235, 255);
+    color: rgb(253, 236, 255);
+}
+
+/* Estilo modo escuro */
+body.modo-escuro {
+    background-color: #7300a0;
+    color: #e0e0e0;
+}
+body.modo-escuro h1 {
+    color:#b539b9
+}
+body.modo-escuro button {
+    background-color:#d287f3
+}
+body.modo-escuro div.container {
+    background-color: #470264;
+}
+body.modo-escuro textarea {
+    background-color: #333;
+}
+body.modo-escuro p {
+    color:rgb(255, 255, 255);
 }

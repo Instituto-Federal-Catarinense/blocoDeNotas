@@ -1,6 +1,8 @@
 // Espera o conteúdo da página carregar completamente antes de executar o script.
 // É uma boa prática para evitar erros de JavaScript tentando acessar elementos
 // que ainda não existem na página.
+//                                      quando for carregado
+//                                     /          ________função
 document.addEventListener('DOMContentLoaded', () => {
 
     // 1. SELECIONANDO O ELEMENTO
@@ -8,6 +10,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
     const blocoDeNotas = document.getElementById('blocoDeNotas');
+    //const do elemento com id  limpablocis
+    const btnlimparNota = document.getElementById ('limpaNota');
+
+    const btnsalvaNota =  document.getElementById ('salvaNota');
+
+    const bntmudarcor = document.getElementById('mudarCor')
+
+    //event listener para quando clicar 
+    btnlimparNota.addEventListener('click',()=>{
+        blocoDeNotas.value ='';//ta dando esse valor
+        localStorage.removeItem('minhaNota');//remove as nota 
+        console.log("NOTAS LIMPAS !!");//pra gentepoder ver no console se ta dando certo 
+
+    })
+
 
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
@@ -21,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (notaSalva) {
         // Se 'notaSalva' não for nulo (ou seja, existe algo salvo),
         // nós colocamos o valor salvo de volta no nosso 'blocoDeNotas'.
+        //se tiver alguma notaSalva, ele vai trocar o valor pelo valor da nota salva, senao nao 
         blocoDeNotas.value = notaSalva;
     }
 
@@ -34,7 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
     //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
     //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
     //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
+
+    // para ccriar  o botao salvar, tem que criar uma costante para o botao e musar o input para clack
+    btnsalvaNota.addEventListener('click', () => {
         // 4. SALVANDO DADOS NO LOCALSTORAGE
         // -----------------------------------
         // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas
@@ -49,5 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
     });
+
+    // 5 mudarCOE
+
+    bntmudarcor.addEventListener('click', () => {
+        // Aqui, vamos mudar a cor de fundo do bloco de notas para uma cor aleatória.
+        // Para isso, usamos 'Math.random()' para gerar um número aleatório e o convertemos
+        // em uma cor hexadecimal.
+        const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        blocoDeNotas.style.backgroundColor = randomColor; // Aplicamos a nova cor ao estilo do bloco de notas.
+    });
+
+
 
 });

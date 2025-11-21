@@ -19,10 +19,11 @@ body {
     text-align: center;
     width: 90%;
     max-width: 600px;
+    border: solid black;
 }
 
 h1 {
-    color: #007bff;
+    color: #155f02;
 }
 
 p {
@@ -39,12 +40,42 @@ p {
     border-radius: 4px;
     font-size: 16px;
     line-height: 1.5;
-    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
-    resize: vertical; /* Permite que o usuário redimensione a altura */
+    box-sizing: border-box;
+    /* Garante que o padding não aumente a largura total */
+    resize: vertical;
+    /* Permite que o usuário redimensione a altura */
 }
 
 #blocoDeNotas:focus {
     outline: none;
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+body {
+    background-image: url(https://wallpapers.com/images/featured-full/fundo-de-papel-amassado-u93ahfi8co4epvd6.jpg);
+}
+
+#um {
+    background-color: #d8d6d6;
+    border-radius: 5px;
+    border: none;
+}
+
+#um:hover {
+    background-color: #ffffff;
+    border: solid black;
+    cursor: pointer;
+}
+
+button {
+    border-radius: 5px;
+    border: solid black;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: rgb(153, 34, 34);
+}
+
+a {
+    text-decoration: none;
 }

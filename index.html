@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloco de Notas Moderno</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloco de Notas Moderno</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="container">
+    <h1>Meu Bloco de Notas˚✿˖</h1>
+    <p>Suas anotações são salvas automaticamente no seu navegador.</p>
 
-    <div class="container">
-        <h1>Meu Bloco de Notas</h1>
-        <p>Suas anotações são salvas automaticamente no seu navegador.</p>
-        
-        <textarea id="blocoDeNotas" placeholder="Comece a digitar aqui..."></textarea>
+    <textarea id="blocoDeNotas" placeholder="Comece a digitar aqui..."></textarea>
+    <button id="btnLimparNotas"> ( _´꒳`_)੭⁾⁾ Limpar notas</button>
+    <button id="btnSalvarNotas"> ( _´꒳`_)੭⁾⁾ Salvar notas</button>
+
+    <!-- Configurações de Acessibilidade -->
+    <div id="configuracoes">
+      <h2>Configurações de Acessibilidade</h2>
+      <button id="toggle-dark">🌙 Modo Escuro</button>
+
+      <select id="seletor-cores">
+        <option value="">Sem Filtro</option>
+        <option value="azul">Azul</option>
+        <option value="amarelo">Amarelo</option>
+        <option value="rosa">Rosa</option>
+      </select>
     </div>
+  </div>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

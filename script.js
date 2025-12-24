@@ -8,6 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
     const blocoDeNotas = document.getElementById('blocoDeNotas');
+    const btnLimparNotas = document.getElementById('btnLimparNotas');
+    const toggleDark = document.getElementById('toggle-dark'); // Novo botão modo escuro
+    const seletorCores = document.getElementById('seletor-cores'); // Seletor de cor de fundo
+    const btnSalvarNotas = document.getElementById('btnSalvarNotas'); // Botão salvar notas
+
+    // add um evento de clique 
+    btnLimparNotas.addEventListener('click', () => {
+        blocoDeNotas.value = '';
+        localStorage.removeItem('minhaNota');
+        console.log("Notas Limpas e removidas do LocalStorege!");
+    });
 
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
@@ -48,6 +59,44 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('minhaNota', blocoDeNotas.value);
 
         console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
+    });
+
+    // 5. CARREGANDO O MODO ESCURO
+    // ----------------------------
+    // Verifica se o modo escuro estava ativado da última vez
+    if (localStorage.getItem("temaDark") === "true") {
+        document.body.classList.add("dark");
+        toggleDark.textContent = "☀️ Modo Claro";
+    }
+
+    // 6. CARREGANDO COR DE FUNDO
+    // ---------------------------
+    const cores = localStorage.getItem("cores") || "";
+    if (cores) {
+        document.body.classList.add(cores);
+        seletorCores.value = cores;
+    }
+
+    // 7. BOTÃO MODO ESCURO/CLARO
+    // ---------------------------
+    // Alterna entre o modo escuro e claro ao clicar no botão
+    toggleDark.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        const isDark = document.body.classList.contains("dark");
+        toggleDark.textContent = isDark ? "☀️ Modo Claro" : "🌙 Modo Escuro";
+        localStorage.setItem("temaDark", isDark);
+    });
+
+    // 8. SELETOR DE CORES
+    // --------------------
+    // Altera a cor de fundo com base na seleção do usuário
+    seletorCores.addEventListener("change", () => {
+        document.body.classList.remove("azul", "amarelo", "rosa");
+        const valor = seletorCores.value;
+        if (valor) {
+            document.body.classList.add(valor);
+        }
+        localStorage.setItem("cores", valor);
     });
 
 });

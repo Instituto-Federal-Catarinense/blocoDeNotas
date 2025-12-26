@@ -48,3 +48,20 @@ p {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
+#btnDarmMode {
+    align-items: normal;
+}
+
+.dark {
+    background-color: #333;
+    color: #ffffff;
+}
+
+.dark .container {
+    background-color: #000000;
+}
+
+.dark #blocoDeNotas {
+    background-color: #686363;
+}

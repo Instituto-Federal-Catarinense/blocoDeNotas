@@ -8,7 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
     const blocoDeNotas = document.getElementById('blocoDeNotas');
-
+    const btnlimparNotas = document.getElementById('btnLimparNotas');
+    const btnSalvarNotas = document.getElementById('btnSalvarNotas');
+    const btnDarkMode = document.getElementById('btnDarkMode');
+    // Adicionaremos um evento de clique ao botão parar limpar as
+    btnlimparNotas.addEventListener('click', () => {
+        // Quando o botão é clicado, limpamos o conteúdo do bloco de notas
+        blocoDeNotas.value = "";
+        // E também removemos a nota salva do LocalStorage
+        localStorage.removeItem('minhaNota');
+        console.log("Notas limpas e removidads do LocalStorage!")
+    });
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
     // O 'localStorage' é um recurso do navegador que permite salvar informações
@@ -34,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
     //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
     //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
+    btnSalvarNotas.addEventListener('click', () => {
         // 4. SALVANDO DADOS NO LOCALSTORAGE
         // -----------------------------------
         // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas
@@ -49,5 +59,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
     });
+
+    // 5. ALTERANDO O MODO ESCURO (DARK MODE)
+    // ---------------------------------------
+    // Adicionamos um evento de clique ao botão de modo escuro.
+    // Quando o botão é clicado, alternamos entre o modo claro e escuro da página.
+    // Usamos 'classList' para adicionar ou remover a classe 'dark' nos elementos.
+    // Isso muda o estilo da página conforme definido no CSS.
+    //
+    // Parâmetros do addEventListener:
+    //   - O primeiro é o TIPO DE EVENTO: 'click', ou seja, quando o botão é pressionado.
+    //   - O segundo é a FUNÇÃO de callback que executa a lógica de alternância.
+    btnDarkMode.addEventListener('click', () => {
+        const body = document.body; // Referência ao elemento <body>
+        const areaNotas = document.getElementById('areaNotas'); // Área que envolve o bloco de notas
+
+        // Verifica se o modo escuro já está ativado
+        if (body.classList.contains("dark")) {
+            // Se estiver, remove a classe 'dark' dos elementos para voltar ao modo claro
+            body.classList.remove("dark");
+            areaNotas.classList.remove("dark");
+            blocoDeNotas.classList.remove("dark");
+            console.log("DarkMode desligado");
+        } else {
+            // Se não estiver, adiciona a classe 'dark' aos elementos para ativar o modo escuro
+            body.classList.add("dark");
+            areaNotas.classList.add("dark");
+            blocoDeNotas.classList.add("dark");
+            console.log("DarkMode ligado");
+        }
+    });
+
 
 });

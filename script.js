@@ -8,6 +8,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
     const blocoDeNotas = document.getElementById('blocoDeNotas');
+    const btnSalvar = document.getElementById('SalvarNotas');
+    // Aqui, estamos pegando o botão que usamos para salvar as notas.
+    const btnLimparNotas = document.getElementById('LimparNotas');
+    let theme = "";
+    // Aqui, estamos pegando o botão que usamos para limpar as notas.
+     btnSalvar.addEventListener('click', () => {
+        //quando o botao é clicado, salvamos o conteúdo do bloco de notas.//
+        //tambem  a nota salva do localstorage// 
+        localStorage.setItem('minhaNota', blocoDeNotas.value);
+        console.log("Nota Salva"); //mensagem no console para confirmar que limpou// 
+    });
+
+    //adicionando um evento de clique ao botao "limpar notas"//
+    btnLimparNotas.addEventListener('click', () => {
+        //quando o botao é clicado, limpamos o conteúdo do bloco de notas.//
+        blocoDeNotas.value = ''; //define o valor do <textarea/> como uma string vazia //
+        //tambem removemos a nota salva do localstorage// 
+        localStorage.removeItem('minhaNota');//remove o item 'minhanota', caso se fosse um vetor, nao seria bom pq apagaria todos os dados, porem, como é apenas aquela nota nao tem problema usar o remove.item//
+        console.log("Notas Limpas"); //mensagem no console para confirmar que limpou// 
+    });
+   
 
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
@@ -45,9 +66,28 @@ document.addEventListener('DOMContentLoaded', () => {
         //   - O primeiro é a CHAVE (o "nome" do nosso dado). Usaremos a mesma chave 'minhaNota'.
         //   - O segundo é o VALOR que queremos salvar. 'blocoDeNotas.value' contém o texto
         //     que está atualmente na área de texto.
-        localStorage.setItem('minhaNota', blocoDeNotas.value);
+
+        //a cada input que ocorrer no bloco de notas eu executo a função que armazena no localStorage,//
+
+
+
+        localStorage.setItem('minhaNota', blocoDeNotas.value);//value: texto que ta dentro do textarea, o conteudo//
 
         console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
-    });
 
+    });
+    const btnAlterarEstilo = document.getElementById('AlterarEstilo');
+    AlterarEstilo.addEventListener('click',function () {
+        // Função para alterar o estilo do bloco de notas
+        if(theme === 'novo-estilo') { 
+            theme= '';
+            document.body.classList.remove('novo-estilo'); // Adiciona a classe 'novo-estilo' ao body
+            console.log("Estilo removido!"); // Mensagem no console para confirmar a alteração de estilo
+        } else {
+             document.body.classList.add('novo-estilo');
+             theme= 'novo-estilo'; // Remove a classe 'novo-estilo' do body
+             console.log("Estilo adicionado!"); // Mensagem no console para confirmar a alteração de estilo
+        }}); 
+       // Adicionando um evento de clique ao botão "Alterar Estilo"      
+    
 });

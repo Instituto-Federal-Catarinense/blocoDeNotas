@@ -13,38 +13,113 @@ body {
 /* O contêiner principal que centraliza nosso conteúdo */
 .container {
     background-color: #ffffff;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgtcHIGmWXniJlIzsEeZlbiu0hpvZDNzB-QA&s);
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 90%;
     max-width: 600px;
+
+}
+
+#SalvarNotas {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    /* Espaço entre os botões */
+}
+
+#LimparNotas {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#AlterarEstilo {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.novo-estilo .container {
+    background-image: url(https://inovaveterinaria.com.br/wp-content/uploads/2015/04/gato-sem-raca-INOVA-1024x683.jpg);
+    background-repeat: no-repeat;
+
 }
 
 h1 {
-    color: #007bff;
+    color: #050e17;
+    font-size: 50pt;
 }
 
 p {
-    color: #6c757d;
+    color: #000000;
     margin-bottom: 20px;
 }
 
 /* Estilizando nossa área de texto (textarea) */
 #blocoDeNotas {
+    background-color: rgba(255, 255, 255, 0.41);
+    /* Fundo azul com 50% de transparência */
     width: 100%;
     height: 200px;
     padding: 15px;
-    border: 1px solid #ced4da;
+    border: 1px solid #000000;
     border-radius: 4px;
     font-size: 16px;
     line-height: 1.5;
-    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
-    resize: vertical; /* Permite que o usuário redimensione a altura */
+    box-sizing: border-box;
+    /* Garante que o padding não aumente a largura total */
+    resize: vertical;
+    /* Permite que o usuário redimensione a altura */
+    color: rgb(0, 0, 0)
 }
 
 #blocoDeNotas:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: #b2d6fc;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+h1 span.letra {
+
+    display: inline-block;
+    width: 1em;
+    /* Largura ajustada ao tamanho da letra */
+    height: 1em;
+    /* Altura ajustada ao tamanho da letra */
+    transition: all 0.3s ease;
+    /* Transição suave */
+    vertical-align: baseline;
+    /* Alinha com o texto ao redor */
+    text-align: center;
+    margin-left: -10px;
+    margin-right: -7px;
+
+}
+
+/* Estilo para substituir a letra com imagem */
+h1:hover span.letra {
+    color: transparent;
+    /* Esconde a letra */
+    background-image: url(gato.png);
+    /* Caminho para a imagem */
+    background-size: contain;
+    /* Ajusta a imagem proporcionalmente */
+    background-repeat: no-repeat;
+    background-position: center;
+
 }

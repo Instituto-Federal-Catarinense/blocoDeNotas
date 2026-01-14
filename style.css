@@ -1,50 +1,94 @@
-/* Estilos gerais para a página */
-body {
-    font-family: sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+
+/* Reset básico */
+* {
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
 }
 
-/* O contêiner principal que centraliza nosso conteúdo */
+/* Tema Azul */
+body.tema-azul {
+    background: linear-gradient(to right, #0132b9, #acb6e5);
+    color: #333;
+}
+
+/* Tema Rosa */
+body.tema-rosa {
+    background: linear-gradient(to right, #c900a7, #fad0c4);
+    color: #333;
+}
+
+/* Container principal */
 .container {
     background-color: #ffffff;
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     text-align: center;
     width: 90%;
     max-width: 600px;
+    margin: auto;
+    margin-top: 60px;
+    transition: background-color 0.3s ease;
 }
 
+/* Título e parágrafo */
 h1 {
-    color: #007bff;
+    color: #000000;
+    margin-bottom: 10px;
 }
 
 p {
-    color: #6c757d;
+    color: #000000;
     margin-bottom: 20px;
+    font-size: 14px;
 }
 
-/* Estilizando nossa área de texto (textarea) */
+/* Textarea */
 #blocoDeNotas {
     width: 100%;
     height: 200px;
     padding: 15px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
     font-size: 16px;
-    line-height: 1.5;
-    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
-    resize: vertical; /* Permite que o usuário redimensione a altura */
+    resize: vertical;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
 }
 
-#blocoDeNotas:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+/* Botões */
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+#btnSalvarNotas {
+    background-color: #064ca8;
+    color: white;
+}
+
+#btnLimparNotas {
+    background-color: #08bea6;
+    color: white;
+}
+
+#btnTrocarTema {
+    background-color: #c9174d;
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.05);
 }

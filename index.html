@@ -1,20 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bloco de Notas Moderno</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
+<body class="tema-azul">
     <div class="container">
-        <h1>Meu Bloco de Notas</h1>
-        <p>Suas anotações são salvas automaticamente no seu navegador.</p>
-        
+        <h1>📝 Meu Bloco de Notas</h1>
+        <p>Suas anotações são salvas automaticamente no navegador.</p>
+
         <textarea id="blocoDeNotas" placeholder="Comece a digitar aqui..."></textarea>
+
+        <div class="botoes">
+            <button id="btnSalvarNotas">💾 Salvar</button>
+            <button id="btnLimparNotas">🧹 Limpar</button>
+            <button id="btnTrocarTema">🎨 Trocar Tema</button>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        const textarea = document.getElementById('blocoDeNotas');
+        const btnSalvar = document.getElementById('btnSalvarNotas');
+        const btnLimpar = document.getElementById('btnLimparNotas');
+        const btnTema = document.getElementById('btnTrocarTema');
+        const body = document.body;
+
+        // Carregar nota salva ao abrir
+        window.onload = () => {
+            const notaSalva = localStorage.getItem('minhaNota');
+            if (notaSalva) {
+                textarea.value = notaSalva;
+            }
+
+            const temaSalvo = localStorage.getItem('tema');
+            if (temaSalvo) {
+                body.className = temaSalvo;
+            }
+        };
+
+        // Salvar nota
+        btnSalvar.onclick = () => {
+            localStorage.setItem('minhaNota', textarea.value);
+            alert("✅ Nota salva com sucesso!");
+        };
+
+        // Limpar nota
+        btnLimpar.onclick = () => {
+            textarea.value = "";
+            localStorage.removeItem('minhaNota');
+        };
+
+        // Trocar tema
+        btnTema.onclick = () => {
+            if (body.classList.contains('tema-azul')) {
+                body.className = 'tema-rosa';
+                localStorage.setItem('tema', 'tema-rosa');
+            } else {
+                body.className = 'tema-azul';
+                localStorage.setItem('tema', 'tema-azul');
+            }
+        };
+    </script>
 </body>
+
 </html>

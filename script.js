@@ -24,30 +24,38 @@ document.addEventListener('DOMContentLoaded', () => {
         blocoDeNotas.value = notaSalva;
     }
 
-    // 3. ADICIONANDO UM 'EVENTLISTENER'
-    // ---------------------------------
-    // Agora, a parte principal: queremos fazer algo sempre que o usuário digitar.
-    // O 'addEventListener' é como um "ouvinte" que fica esperando por uma ação específica.
-    //
-    // Parâmetros do addEventListener:
-    //   - O primeiro é o TIPO DE EVENTO que queremos ouvir. 'input' é disparado
-    //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
-    //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
-    //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
-        // 4. SALVANDO DADOS NO LOCALSTORAGE
-        // -----------------------------------
-        // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas
-        // e o salvamos no localStorage.
-        // Usamos 'localStorage.setItem()' para isso.
-        //
-        // Parâmetros do setItem:
-        //   - O primeiro é a CHAVE (o "nome" do nosso dado). Usaremos a mesma chave 'minhaNota'.
-        //   - O segundo é o VALOR que queremos salvar. 'blocoDeNotas.value' contém o texto
-        //     que está atualmente na área de texto.
+    const limparNotas = document.getElementById('limparNotas');
+    limparNotas.addEventListener('click', () => {
+        blocoDeNotas.value = '';
+        localStorage.removeItem('minhaNota');
+    })
+
+    const salvarNotas = document.getElementById('salvarNotas');
+    salvarNotas.addEventListener('click', () => {
         localStorage.setItem('minhaNota', blocoDeNotas.value);
+        console.log("Nota salva no localStorage!"); // Mensagem de depuração
+    })
 
-        console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
-    });
+    const endauti = document.getElementById('endauti');
+    endauti.addEventListener('click', () => {
+        // Gera uma cor aleatória em formato hexadecimal
+        const corAleatoria = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        
+        // Aplica a cor aleatória ao fundo do bloco de notas
+        blocoDeNotas.style.backgroundColor = corAleatoria;
+    })
+    
+    const agrumiti = document.getElementById('agrumiti');
+    agrumiti.addEventListener('click', () => {
+        const fonteAbuble = Math.floor(Math.random() *300); // Gera um tamanho de fonte aleatório entre 12 e 40px
 
+        blocoDeNotas.style.fontSize = fonteAbuble + 'px';
+    })
+
+    const hamburguer = document.getElementById('hamburguer');
+    hamburguer.addEventListener('click', () => {
+        const fonteColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+
+        blocoDeNotas.style.color = fonteColor;
+    })
 });

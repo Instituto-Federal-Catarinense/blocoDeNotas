@@ -8,6 +8,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    transition: 1s;
 }
 
 /* O contêiner principal que centraliza nosso conteúdo */
@@ -19,15 +20,12 @@ body {
     text-align: center;
     width: 90%;
     max-width: 600px;
+    transition: 1s;
 }
 
 h1 {
     color: #007bff;
-}
-
-p {
-    color: #6c757d;
-    margin-bottom: 20px;
+    transition: 1s;
 }
 
 /* Estilizando nossa área de texto (textarea) */
@@ -41,10 +39,31 @@ p {
     line-height: 1.5;
     box-sizing: border-box; /* Garante que o padding não aumente a largura total */
     resize: vertical; /* Permite que o usuário redimensione a altura */
+    transition: 1s;
 }
 
 #blocoDeNotas:focus {
     outline: none;
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    transition: 1s;
+}
+
+/* MODO ESCURO */
+.modo-escuro{
+    background-color: #333;
+    transition-duration: 1s;
+}
+
+.modo-escuro .container{
+    background-color: #6c757d;
+    transition: 1s;
+}
+.modo-escuro h1{
+    color: #ffffff;
+    transition: 1s;
+}
+.modo-escuro #blocoDeNotas{
+    color: #828b92;
+    transition: 1s;
 }

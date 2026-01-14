@@ -1,5 +1,5 @@
 /* Estilos gerais para a página */
-body {
+body.claro {
     font-family: sans-serif;
     background-color: #f0f2f5;
     color: #333;
@@ -10,8 +10,19 @@ body {
     margin: 0;
 }
 
+body.darkmode {
+    font-family: sans-serif;
+    background-color: #181818;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
 /* O contêiner principal que centraliza nosso conteúdo */
-.container {
+.container.claro {
     background-color: #ffffff;
     padding: 30px;
     border-radius: 8px;
@@ -21,17 +32,37 @@ body {
     max-width: 600px;
 }
 
+.container.darkmode {
+    background-color: #222;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+}
+
+/* Título */
 h1 {
     color: #007bff;
 }
 
+.container.darkmode h1 {
+    color: #66aaff;
+}
+
+/* Parágrafo */
 p {
     color: #6c757d;
     margin-bottom: 20px;
 }
 
+.container.darkmode p {
+    color: #ccc;
+}
+
 /* Estilizando nossa área de texto (textarea) */
-#blocoDeNotas {
+#blocoDeNotas.claro {
     width: 100%;
     height: 200px;
     padding: 15px;
@@ -39,12 +70,44 @@ p {
     border-radius: 4px;
     font-size: 16px;
     line-height: 1.5;
-    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
-    resize: vertical; /* Permite que o usuário redimensione a altura */
+    box-sizing: border-box;
+    resize: vertical;
+    background-color: #fff;
+    color: #333;
 }
 
-#blocoDeNotas:focus {
+#blocoDeNotas.darkmode {
+    width: 100%;
+    height: 200px;
+    padding: 15px;
+    border: 1px solid #001325;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    resize: vertical;
+    background-color: #222;
+    color: #fff;
+}
+
+#blocoDeNotas.claro:focus {
     outline: none;
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#blocoDeNotas.darkmode:focus {
+    outline: none;
+    border-color: #ffffff;
+    box-shadow: 0 0 5px rgb(80, 91, 104);
+}
+
+
+.container.darkmode button {
+    background: #444;
+    color: #fff;
+}
+
+.container.darkmode button:hover {
+    background: #222;
 }

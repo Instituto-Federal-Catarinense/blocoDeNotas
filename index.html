@@ -1,20 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <!-- Define o conjunto de caracteres como UTF-8 para suportar acentuação e caracteres especiais -->
     <meta charset="UTF-8">
+    <!-- Garante que o layout seja responsivo em dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título exibido na aba do navegador -->
     <title>Bloco de Notas Moderno</title>
+    <!-- Importa o arquivo de estilos CSS para aplicar o visual ao site -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <!-- Container centralizado para agrupar o conteúdo principal da página -->
     <div class="container">
+        <!-- Título principal do bloco de notas -->
         <h1>Meu Bloco de Notas</h1>
+        <!-- Pequena descrição informando ao usuário sobre o salvamento automático -->
         <p>Suas anotações são salvas automaticamente no seu navegador.</p>
         
+        <!-- Área de texto onde o usuário digita suas anotações.
+             O atributo 'id' permite que o JavaScript acesse este elemento facilmente.
+             O 'placeholder' exibe um texto de dica quando o campo está vazio. -->
         <textarea id="blocoDeNotas" placeholder="Comece a digitar aqui..."></textarea>
+        
+        <!-- Botão para limpar todas as anotações.
+             O 'id' é usado para associar eventos no JavaScript. -->
+        <button id="LimparNotas">Limpar Notas</button>
+        
+        <!-- Botão para salvar manualmente as anotações.
+             O 'id' permite que o JavaScript adicione funcionalidades a este botão. -->
+        <button id="SalvarNotas">Salvar Notas</button>
+        
+        <!-- Botão para alternar entre o modo claro e escuro do site.
+             O 'id' é utilizado para manipulação de tema via JavaScript. -->
+        <button id="MudarModos">Mudar Modo</button>
     </div>
-
+    <!-- Importa o arquivo JavaScript que adiciona as funcionalidades ao bloco de notas -->
     <script src="script.js"></script>
 </body>
 </html>

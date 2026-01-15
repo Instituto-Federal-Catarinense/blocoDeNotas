@@ -1,50 +1,83 @@
-/* Estilos gerais para a página */
-body {
-    font-family: sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+/* Tema Claro */
+body.light-theme {
+    --bg-color: #f7f7f7;
+    --text-color: #222;
+    --container-bg: #fff;
+    --button-bg: #e0e0e0;
+    --button-text: #222;
+    --button-border: #ccc;
 }
 
-/* O contêiner principal que centraliza nosso conteúdo */
+/* Tema Escuro */
+body.dark-theme {
+    --bg-color: #181818;
+    --text-color: #f7f7f7;
+    --container-bg: #232323;
+    --button-bg: #333;
+    --button-text: #f7f7f7;
+    --button-border: #444;
+}
+
+/* Estilos gerais usando variáveis */
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
+}
+
 .container {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 90%;
-    max-width: 600px;
+    background: var(--container-bg);
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 32px 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    transition: background 0.3s;
 }
 
 h1 {
-    color: #007bff;
+    margin-top: 0;
+    font-size: 2rem;
+    text-align: center;
 }
 
-p {
-    color: #6c757d;
-    margin-bottom: 20px;
+/* Estilização do textarea onde o usuário digita as notas */
+textarea {
+    width: 100%;                /* Ocupa toda a largura do container */
+    min-height: 180px;          /* Altura mínima para garantir espaço para digitação */
+    padding: 1px;               /* Espaço interno pequeno para o texto não grudar na borda */
+    border-radius: 8px;         /* Bordas arredondadas para visual moderno */
+    border: 1px solid var(--button-border); /* Borda usando a cor definida pela variável do tema */
+    background: var(--container-bg);        /* Fundo usando a cor do container do tema */
+    color: var(--text-color);   /* Cor do texto conforme o tema (claro/escuro) */
+    font-size: 1rem;            /* Tamanho da fonte padrão para boa leitura */
+    margin-bottom: 16px;        /* Espaço abaixo do textarea para separar dos botões */
+    resize: vertical;           /* Permite ao usuário aumentar/diminuir a altura apenas na vertical */
+    transition: background 0.3s, color 0.3s; /* Transição suave ao trocar de tema */
 }
 
-/* Estilizando nossa área de texto (textarea) */
-#blocoDeNotas {
-    width: 100%;
-    height: 200px;
-    padding: 15px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    font-size: 16px;
-    line-height: 1.5;
-    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
-    resize: vertical; /* Permite que o usuário redimensione a altura */
+/* Estilização dos botões (Limpar, Salvar, Mudar Modo) */
+button {
+    background: var(--button-bg);           /* Cor de fundo do botão conforme o tema */
+    color: var(--button-text);              /* Cor do texto do botão conforme o tema */
+    border: 1px solid var(--button-border); /* Borda do botão usando variável do tema */
+    border-radius: 6px;                     /* Bordas arredondadas para visual moderno */
+    padding: 5px 10;                        /* Espaçamento interno (vertical 5px, horizontal 10px) */
+    margin-right: 26px;                     /* Espaço à direita para separar os botões entre si */
+    font-size: 1rem;                        /* Tamanho da fonte igual ao textarea */
+    cursor: pointer;                        /* Cursor de mãozinha ao passar sobre o botão */
+    transition: background 0.3s, color 0.3s, border 0.3s; /* Transições suaves ao trocar de tema */
 }
 
-#blocoDeNotas:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+/* Remove o espaçamento à direita do último botão para alinhar corretamente */
+button:last-child {
+    margin-right: 0;
+}
+
+/* Efeito visual ao passar o mouse sobre qualquer botão */
+button:hover {
+    filter: brightness(0.95); /* Deixa o botão levemente mais escuro ao passar o mouse */
 }

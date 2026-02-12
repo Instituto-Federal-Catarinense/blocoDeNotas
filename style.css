@@ -22,7 +22,7 @@ body {
 }
 
 h1 {
-    color: #007bff;
+    color: #ff47f6;
 }
 
 p {
@@ -45,6 +45,44 @@ p {
 
 #blocoDeNotas:focus {
     outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: #d382dd;
+    box-shadow: 0 0 5px rgba(212, 0, 255, 0.5);
 }
+.botoes button {
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 0.2s, opacity 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.botoes button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+#btnLimparNotas {
+    background: linear-gradient(135deg, #ff99ac, #ff6f91);
+}
+
+#btnSalvarNotas {
+    background: linear-gradient(135deg, #c084fc, #a78bfa);
+}
+/* Cores padrão do textarea */
+#blocoDeNotas {
+    background-color: #ffffff;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Classe que troca o fundo para um tom escuro */
+.fundo-escuro {
+    background: #7214ee;
+    color-text: #f0e6f6;
+}
+

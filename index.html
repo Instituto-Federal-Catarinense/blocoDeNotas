@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloco de Notas Moderno</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bloco de Notas Moderno Feminino</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
     <div class="container">
         <h1>Meu Bloco de Notas</h1>
-        <p>Suas anotações são salvas automaticamente no seu navegador.</p>
-        
+        <p>Suas anotações são salvas somente quando você clicar em "Salvar Notas".</p>
         <textarea id="blocoDeNotas" placeholder="Comece a digitar aqui..."></textarea>
+
+        <div class="botoes">
+            <button id="btnLimparNotas">Limpar Notas</button>
+            <button id="btnSalvarNotas">Salvar Notas</button>
+            <button id="btnTrocarFundo">Trocar Fundo</button>
+        </div>
     </div>
 
     <script src="script.js"></script>

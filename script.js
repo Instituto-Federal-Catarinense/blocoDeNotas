@@ -17,6 +17,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Aqui, estamos procurando por um item que salvamos com a chave 'minhaNota'.
     const notaSalva = localStorage.getItem('minhaNota');
 
+    const botaoExcluir = document.getElementById('btnExcluir');
+
+    const botaoSalvar = document.getElementById('btnSalvar');
+
+    const botaoTrocarCor = document.getElementById('btnTrocarCor');
+
+    botaoExcluir.addEventListener('click', () => {
+        blocoDeNotas.value = '';
+        localStorage.removeItem('minhaNota');
+        console.log('Notas excluídas do localStorage!'); // Mensagem de confirmação no console
+    });
+
     // Verificamos se encontramos alguma nota salva.
     if (notaSalva) {
         // Se 'notaSalva' não for nulo (ou seja, existe algo salvo),
@@ -34,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
     //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
     //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
+    botaoSalvar.addEventListener('click', () => {
         // 4. SALVANDO DADOS NO LOCALSTORAGE
         // -----------------------------------
         // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas
@@ -49,5 +61,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
     });
+    const h1 = document.getElementById('meuTitulo');
 
+    botaoTrocarCor.addEventListener('click', () => {
+        const root = document.documentElement;
+
+        h1.classList.toggle('vermelho');
+        h1.classList.toggle('azul');
+        if (h1.classList.contains('azul')) {
+            root.style.setProperty('--cor-destaque', '#007bff');
+        } else {
+            root.style.setProperty('--cor-destaque', 'red');
+        }
+    });
 });

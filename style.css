@@ -48,3 +48,45 @@ p {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
+/*adicionando dark mode*/
+body.dark-mode {    
+    background-color: #130047;
+    color: #ffffff;
+}
+
+/* Estilizando os botões */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px; /* Espaçamento entre os botões */
+}
+button:hover {
+    background-color: #0056b3;
+}
+/* Estilizando o botão de limpar */
+#limpar {
+    background-color: #dc3545;
+}
+#limpar:hover {
+    background-color: #c82333;
+}
+/* Estilizando o botão de salvar */
+#salvar {
+    background-color: #28a745;
+}
+#salvar:hover {
+    background-color: #218838;
+}
+
+#dark-mode-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    
+}

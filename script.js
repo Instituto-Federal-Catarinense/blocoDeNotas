@@ -8,7 +8,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
     const blocoDeNotas = document.getElementById('blocoDeNotas');
+    const btnLimparNotas = document.getElementById('limparNotas');
 
+    btnLimparNotas.addEventListener('click', () => {
+        blocoDeNotas.value = '';
+        localStorage.removeItem('minhaNota');
+    })
+// Consertar
+    btnLimparNotas.addEventListener('click', () => {
+    switch (Math.floor(Math.random()*5);) {
+        case 0:
+            btnLimparNotas.style.backgroundColor = "blue";
+            break;
+        case 1:
+            btnLimparNotas.style.backgroundColor = "yellow";
+            break;
+        case 2:
+            btnLimparNotas.style.backgroundColor = "red";
+            break;
+        case 3:
+            btnLimparNotas.style.backgroundColor = "green";
+            break;
+        case 4:
+            btnLimparNotas.style.backgroundColor = "purple";
+            break;
+    }}
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
     // O 'localStorage' é um recurso do navegador que permite salvar informações

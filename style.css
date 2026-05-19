@@ -5,7 +5,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f2f5;
+    background: radial-gradient(circle at top left, #fbd7e7 0%, #fde4ef 30%, #f5c1d5 60%, #f3b3d1 100%);
     color: #333;
     display: flex;
     justify-content: center;
@@ -16,7 +16,7 @@ body {
 }
 
 .container {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.92);
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);

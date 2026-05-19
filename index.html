@@ -7,13 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <main class="container">
+        <header>
+            <h1>Bloco de Notas da Gabriely</h1>
+            <p>Suas anotações são salvas automaticamente no seu navegador.</p>
+        </header>
 
-    <div class="container">
-        <h1>Bloco de Notas da Gabriely</h1>
-        <p>Suas anotações são salvas automaticamente no seu navegador.</p>
-        
-        <textarea id="blocoDeNotas" placeholder="Comece a digitar aqui..."></textarea>
-    </div>
+        <label for="blocoDeNotas" class="textarea-label">Digite sua anotação</label>
+        <textarea id="blocoDeNotas" placeholder="Comece a digitar aqui..." aria-label="Bloco de notas"></textarea>
+
+        <div class="actions">
+            <button type="button" id="limparBtn">Limpar notas</button>
+            <span id="status" class="status" aria-live="polite"></span>
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>

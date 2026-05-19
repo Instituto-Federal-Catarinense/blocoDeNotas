@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloco de Notas Moderno</title>
+    <title>Bloco de Notas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="container">
         <h1>Bloco de Notas do Vítor</h1>
         <p>Suas anotações são salvas automaticamente no seu navegador.</p>
-        
-        <textarea id="blocoDeNotas" placeholder="Comece a digitar aqui..."></textarea>
+
+        <label for="blocoDeNotas" class="label">Sua anotação</label>
+        <textarea id="blocoDeNotas" placeholder="Adicione letras nesta caixa..."></textarea>
+
+        <div class="actions">
+            <button type="button" id="limparBtn">Limpar</button>
+            <button type="button" id="restaurarBtn">Restaurar</button>
+        </div>
+
+        <p id="status" class="status" aria-live="polite">Carregando...</p>
     </div>
 
     <script src="script.js"></script>

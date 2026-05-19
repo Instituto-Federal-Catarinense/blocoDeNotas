@@ -1,32 +1,35 @@
 /* Estilos gerais para a página */
 body {
     font-family: sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
+    background-color: #0c2b1a;
+    color: #17ff07;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    width: 100%;
+    background-image: url('https://billboard-com-br.s3.amazonaws.com/wp-content/uploads/2026/04/15233849/MC-Hariel-divulgacao_1-1024x538.webp');
+    background-size: cover;
 }
 
 /* O contêiner principal que centraliza nosso conteúdo */
-.container {
-    background-color: #ffffff;
+/*.container {
+    background-color: #ae00ff;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 90%;
     max-width: 600px;
-}
+}*/
 
 h1 {
-    color: #007bff;
+    color: #1aff00;
 }
 
 p {
-    color: #6c757d;
+    color: #00ff7b;
     margin-bottom: 20px;
 }
 
@@ -35,7 +38,7 @@ p {
     width: 100%;
     height: 200px;
     padding: 15px;
-    border: 1px solid #ced4da;
+    border: 1px solid #07c1ff;
     border-radius: 4px;
     font-size: 16px;
     line-height: 1.5;

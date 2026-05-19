@@ -8,6 +8,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
     const blocoDeNotas = document.getElementById('blocoDeNotas');
+    const btnLimparNotas = document.getElementById('btnLimparNotas');
+    const btnSalvarNotas = document.getElementById('btnSalvarNotas');
+    const btnAlterarTema = document.getElementById('btnAlterarTema');
+    //adicionamos um evento de click a botão para limpar as notas
+    btnLimparNotas.addEventListener('click', () => {
+        //quando o botão é clicado, limpamos o conteúdo do bloco de notas
+        blocoDeNotas.value = '';
+        //e também removemos a nota salva do localStorage
+        localStorage.removeItem('minhaNota');
+        console.log("Notas limpas e removidas do localStorage!");
+    });
+    
 
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
@@ -34,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
     //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
     //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
+    btnSalvarNotas.addEventListener('click', () => {
         // 4. SALVANDO DADOS NO LOCALSTORAGE
         // -----------------------------------
         // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas
@@ -49,5 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
     });
+
+    //alterar tema
+    btnAlterarTema.addEventListener('click', () => {
+        document.body.classList.toggle("modoVermelho");
+        console.log("Tema da página foi alterado!"); 
+
+    })
 
 });

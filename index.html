@@ -7,13 +7,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <main class="container">
+        <h1>Bloco de Notas</h1>
+        <p>Suas anotações ficam salvas automaticamente no navegador.</p>
 
-    <div class="container">
-        <h1>Bloco de Notas do Luiz</h1>
-        <p>Suas anotações são salvas automaticamente no seu navegador.</p>
-        
-        <textarea id="blocoDeNotas" placeholder="Comece a digitar aqui..."></textarea>
-    </div>
+        <form class="note-form" onsubmit="return false;">
+            <label for="noteTitle">Título da nota (opcional)</label>
+            <input type="text" id="noteTitle" placeholder="Meu lembrete" aria-label="Título da nota">
+
+            <label for="blocoDeNotas">Escreva suas notas</label>
+            <textarea id="blocoDeNotas" rows="10" placeholder="Digite algo..." aria-label="Área de anotações"></textarea>
+
+            <div class="actions">
+                <button type="button" id="exportBtn">Exportar</button>
+                <button type="button" id="importBtn">Importar</button>
+                <button type="button" id="limparBtn">Limpar</button>
+                <button type="button" id="temaBtn">Tema escuro</button>
+            </div>
+            <input type="file" id="fileInput" accept=".txt" hidden aria-hidden="true">
+        </form>
+
+        <div class="status" aria-live="polite" id="statusMessage"></div>
+    </main>
 
     <script src="script.js"></script>
 </body>

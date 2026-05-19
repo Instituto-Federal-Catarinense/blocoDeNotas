@@ -1,50 +1,127 @@
 /* Estilos gerais para a página */
-body {
-    font-family: sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+:root {
+    color-scheme: light;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #eef3f8;
+    color: #1f2937;
 }
 
-/* O contêiner principal que centraliza nosso conteúdo */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), transparent 28%),
+                radial-gradient(circle at bottom right, rgba(16, 185, 129, 0.16), transparent 30%),
+                linear-gradient(180deg, #f7fbff 0%, #eef3f8 100%);
+}
+
 .container {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 90%;
-    max-width: 600px;
+    width: min(100%, 760px);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 28px;
+    box-shadow: 0 32px 80px rgba(15, 23, 42, 0.12);
+    padding: 40px 42px;
+    backdrop-filter: blur(10px);
 }
 
 h1 {
-    color: #007bff;
+    margin: 0 0 12px;
+    font-size: clamp(2rem, 2.4vw, 2.8rem);
+    letter-spacing: -0.03em;
+    color: #0f172a;
 }
 
 p {
-    color: #6c757d;
-    margin-bottom: 20px;
+    margin: 0 0 32px;
+    max-width: 38rem;
+    line-height: 1.8;
+    color: #475569;
 }
 
-/* Estilizando nossa área de texto (textarea) */
 #blocoDeNotas {
     width: 100%;
-    height: 200px;
-    padding: 15px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    font-size: 16px;
-    line-height: 1.5;
-    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
-    resize: vertical; /* Permite que o usuário redimensione a altura */
+    min-height: 260px;
+    padding: 22px;
+    border-radius: 24px;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    background: #f8fafc;
+    color: #0f172a;
+    font-size: 1rem;
+    line-height: 1.75;
+    resize: vertical;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+#blocoDeNotas::placeholder {
+    color: #94a3b8;
 }
 
 #blocoDeNotas:focus {
     outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: rgba(59, 130, 246, 0.75);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+.actions {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 16px;
+    align-items: center;
+    margin-top: 26px;
+}
+
+button {
+    border: none;
+    border-radius: 9999px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, #2563eb, #22c55e);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 18px 30px rgba(37, 99, 235, 0.16);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    filter: saturate(1.05);
+    box-shadow: 0 22px 34px rgba(37, 99, 235, 0.2);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+#status {
+    color: #334155;
+    font-size: 0.95rem;
+    opacity: 0;
+    transition: opacity 0.18s ease;
+}
+
+#status.visible {
+    opacity: 1;
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 28px 24px;
+    }
+
+    .actions {
+        grid-template-columns: 1fr;
+    }
+
+    button {
+        width: 100%;
+    }
 }

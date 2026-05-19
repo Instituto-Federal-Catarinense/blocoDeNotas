@@ -48,3 +48,39 @@ p {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056d6;
+}
+
+button:focus {
+    outline: 2px solid #0056d6;
+    outline-offset: 2px;
+}
+
+.status {
+    color: #6c757d;
+    font-size: 0.95rem;
+    min-width: 160px;
+    text-align: right;
+}

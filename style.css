@@ -1,8 +1,10 @@
 /* Estilos gerais para a página */
 body {
     font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background-color: #eef2f7;
-    color: #212529;
+    background: radial-gradient(circle at top left, #ff6ec7 0%, transparent 28%),
+                radial-gradient(circle at bottom right, #0ea5e9 0%, transparent 26%),
+                linear-gradient(180deg, #120a3a 0%, #170d47 45%, #1b1b4e 100%);
+    color: #f8fafc;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,45 +13,115 @@ body {
     padding: 24px;
 }
 
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 25%),
+                      radial-gradient(circle at 80% 15%, rgba(255, 255, 255, 0.05), transparent 20%),
+                      radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.06), transparent 18%);
+    pointer-events: none;
+}
+
 /* O contêiner principal que centraliza nosso conteúdo */
 .container {
-    background-color: #ffffff;
-    padding: 32px;
-    border-radius: 16px;
-    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+    background: linear-gradient(180deg, rgba(27, 20, 75, 0.98), rgba(22, 15, 55, 0.95));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 36px;
+    border-radius: 28px;
+    box-shadow: 0 36px 80px rgba(15, 23, 42, 0.35);
     text-align: center;
-    width: min(100%, 680px);
+    width: min(100%, 700px);
+    backdrop-filter: blur(12px);
 }
 
 h1 {
-    color: #2c7be5;
-    margin: 0 0 12px;
+    color: #f9c74f;
+    margin: 0 0 10px;
+    text-shadow: 0 4px 18px rgba(249, 199, 79, 0.4);
 }
 
 p {
-    color: #495057;
-    margin: 0 0 24px;
-    line-height: 1.6;
+    color: #d8d8ff;
+    margin: 0 0 22px;
+    line-height: 1.65;
 }
 
 /* Estilizando nossa área de texto (textarea) */
 #blocoDeNotas {
     width: 100%;
-    min-height: 280px;
-    padding: 18px;
-    border: 1px solid #d1d7e0;
-    border-radius: 12px;
-    font-size: 16px;
-    line-height: 1.75;
+    min-height: 320px;
+    padding: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 20px;
+    font-size: 17px;
+    line-height: 1.8;
     box-sizing: border-box;
     resize: vertical;
-    background-color: #f8fafc;
-    color: #1f2937;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background: rgba(11, 7, 38, 0.95);
+    color: #f4f6ff;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+                inset 0 20px 45px rgba(26, 15, 90, 0.22);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+#blocoDeNotas::placeholder {
+    color: rgba(248, 248, 255, 0.6);
 }
 
 #blocoDeNotas:focus {
     outline: none;
-    border-color: #5b8def;
-    box-shadow: 0 0 0 4px rgba(91, 141, 239, 0.12);
+    border-color: #82d1ff;
+    box-shadow: 0 0 0 4px rgba(130, 209, 255, 0.18),
+                inset 0 0 0 1px rgba(130, 209, 255, 0.24);
+    transform: translateY(-1px);
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 14px 26px;
+    border: none;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+#salvarBtn {
+    background: linear-gradient(135deg, #ff6ec7 0%, #7c3aed 100%);
+    color: #ffffff;
+    box-shadow: 0 16px 32px rgba(255, 110, 199, 0.32);
+}
+
+#limparBtn {
+    background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%);
+    color: #ffffff;
+    box-shadow: 0 16px 32px rgba(6, 182, 212, 0.28);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.96;
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.24);
+}
+
+.status-message {
+    min-height: 1.4rem;
+    margin-bottom: 18px;
+    color: #7dd3fc;
+    font-size: 0.95rem;
+    font-weight: 600;
 }

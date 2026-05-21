@@ -9,7 +9,11 @@
 <body>
     <main class="container">
         <h1>Bloco de Notas do Flávio</h1>
-        <p>Suas anotações são salvas automaticamente no seu navegador.</p>
+        <div class="actions">
+            <button id="salvarBtn" type="button">Salvar</button>
+            <button id="limparBtn" type="button">Limpar</button>
+        </div>
+        <div id="statusMessage" class="status-message" aria-live="polite"></div>
         <textarea id="blocoDeNotas" placeholder="Comece a digitar aqui..." aria-label="Bloco de notas"></textarea>
     </main>
 

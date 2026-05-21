@@ -40,8 +40,32 @@ function saveNoteValue(storage, value) {
     storage.setItem(STORAGE_KEY, value);
 }
 
+function saveNote(storage, value) {
+    saveNoteValue(storage, value);
+    const status = document.getElementById('statusMessage');
+    if (status) {
+        status.textContent = 'Anotação salva com sucesso!';
+        window.setTimeout(() => {
+            status.textContent = '';
+        }, 1800);
+    }
+}
+
+function clearNote(storage, textarea) {
+    if (textarea) {
+        textarea.value = '';
+    }
+
+    if (storage) {
+        storage.removeItem(STORAGE_KEY);
+    }
+}
+
 function init() {
     const textarea = document.getElementById('blocoDeNotas');
+    const salvarBtn = document.getElementById('salvarBtn');
+    const limparBtn = document.getElementById('limparBtn');
+
     if (!textarea) {
         return;
     }
@@ -54,6 +78,14 @@ function init() {
     }, 200);
 
     textarea.addEventListener('input', debouncedSave);
+
+    if (salvarBtn) {
+        salvarBtn.addEventListener('click', () => saveNote(storage, textarea.value));
+    }
+
+    if (limparBtn) {
+        limparBtn.addEventListener('click', () => clearNote(storage, textarea));
+    }
 }
 
 document.addEventListener('DOMContentLoaded', init);

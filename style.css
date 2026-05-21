@@ -48,3 +48,33 @@ p {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
+/* Barra de ferramentas */
+.toolbar {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.toolbar button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.toolbar button:hover {
+    background-color: #0069d9;
+}
+
+.toolbar .status {
+    margin-left: auto;
+    color: #6c757d;
+    font-size: 13px;
+}

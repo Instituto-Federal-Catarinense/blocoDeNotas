@@ -1,50 +1,121 @@
 /* Estilos gerais para a página */
+:root {
+    color-scheme: light;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
 body {
-    font-family: sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
+    background-color: #eef2f7;
+    color: #1f2937;
+    margin: 0;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    padding: 24px;
 }
 
 /* O contêiner principal que centraliza nosso conteúdo */
 .container {
     background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 90%;
-    max-width: 600px;
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+    max-width: 720px;
+    width: 100%;
+    padding: 32px;
 }
 
 h1 {
-    color: #007bff;
+    margin-top: 0;
+    color: #1d4ed8;
+    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
 }
 
 p {
-    color: #6c757d;
-    margin-bottom: 20px;
+    color: #475569;
+    margin: 0 0 24px;
+    line-height: 1.7;
 }
 
-/* Estilizando nossa área de texto (textarea) */
-#blocoDeNotas {
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #334155;
+    text-align: left;
+}
+
+textarea {
     width: 100%;
-    height: 200px;
-    padding: 15px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    font-size: 16px;
-    line-height: 1.5;
-    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
-    resize: vertical; /* Permite que o usuário redimensione a altura */
+    min-height: 240px;
+    padding: 18px;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    font-size: 1rem;
+    line-height: 1.7;
+    resize: vertical;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: #f8fafc;
+    color: #0f172a;
+    box-sizing: border-box;
 }
 
-#blocoDeNotas:focus {
+textarea:focus {
     outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+.actions {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 999px;
+    background-color: #2563eb;
+    color: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+button:hover,
+button:focus-visible {
+    background-color: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.status {
+    font-size: 0.95rem;
+    color: #334155;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.status--error {
+    color: #b91c1c;
+}
+
+.status--hidden {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+}
+
+@media (max-width: 540px) {
+    .actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    button {
+        width: 100%;
+    }
 }

@@ -7,13 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div class="container">
-        <h1>Bloco de Notas do Joédio</h1>
-        <p>Suas anotações são salvas automaticamente no seu navegador.</p>
-        
-        <textarea id="blocoDeNotas" placeholder="Comece a digitar aqui..."></textarea>
-    </div>
+    <main class="container">
+        <h1>Bloco de Notas do Flávio</h1>
+        <div class="actions">
+            <button id="salvarBtn" type="button">Salvar</button>
+            <button id="limparBtn" type="button">Limpar</button>
+        </div>
+        <div id="statusMessage" class="status-message" aria-live="polite"></div>
+        <textarea id="blocoDeNotas" placeholder="Comece a digitar aqui..." aria-label="Bloco de notas"></textarea>
+    </main>
 
     <script src="script.js"></script>
 </body>

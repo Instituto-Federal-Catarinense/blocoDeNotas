@@ -1,53 +1,91 @@
-// Espera o conteúdo da página carregar completamente antes de executar o script.
-// É uma boa prática para evitar erros de JavaScript tentando acessar elementos
-// que ainda não existem na página.
-document.addEventListener('DOMContentLoaded', () => {
+const STORAGE_KEY = 'minhaNota';
 
-    // 1. SELECIONANDO O ELEMENTO
-    // ----------------------------
-    // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
-    // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
-    const blocoDeNotas = document.getElementById('blocoDeNotas');
+function getLocalStorage() {
+    try {
+        const testKey = '__bloco_de_notas_teste__';
+        window.localStorage.setItem(testKey, testKey);
+        window.localStorage.removeItem(testKey);
+        return window.localStorage;
+    } catch (error) {
+        console.warn('localStorage não disponível:', error);
+        return null;
+    }
+}
 
-    // 2. CARREGANDO DADOS DO LOCALSTORAGE
-    // ------------------------------------
-    // O 'localStorage' é um recurso do navegador que permite salvar informações
-    // que persistem mesmo depois que o navegador é fechado.
-    // Usamos 'localStorage.getItem()' para buscar um item salvo.
-    // Aqui, estamos procurando por um item que salvamos com a chave 'minhaNota'.
-    const notaSalva = localStorage.getItem('minhaNota');
+function debounce(callback, delay = 250) {
+    let timeoutId = null;
 
-    // Verificamos se encontramos alguma nota salva.
-    if (notaSalva) {
-        // Se 'notaSalva' não for nulo (ou seja, existe algo salvo),
-        // nós colocamos o valor salvo de volta no nosso 'blocoDeNotas'.
-        blocoDeNotas.value = notaSalva;
+    return (...args) => {
+        clearTimeout(timeoutId);
+        timeoutId = window.setTimeout(() => callback(...args), delay);
+    };
+}
+
+function loadSavedNote(textarea, storage) {
+    if (!storage) {
+        return;
     }
 
-    // 3. ADICIONANDO UM 'EVENTLISTENER'
-    // ---------------------------------
-    // Agora, a parte principal: queremos fazer algo sempre que o usuário digitar.
-    // O 'addEventListener' é como um "ouvinte" que fica esperando por uma ação específica.
-    //
-    // Parâmetros do addEventListener:
-    //   - O primeiro é o TIPO DE EVENTO que queremos ouvir. 'input' é disparado
-    //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
-    //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
-    //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
-        // 4. SALVANDO DADOS NO LOCALSTORAGE
-        // -----------------------------------
-        // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas
-        // e o salvamos no localStorage.
-        // Usamos 'localStorage.setItem()' para isso.
-        //
-        // Parâmetros do setItem:
-        //   - O primeiro é a CHAVE (o "nome" do nosso dado). Usaremos a mesma chave 'minhaNota'.
-        //   - O segundo é o VALOR que queremos salvar. 'blocoDeNotas.value' contém o texto
-        //     que está atualmente na área de texto.
-        localStorage.setItem('minhaNota', blocoDeNotas.value);
+    const savedNote = storage.getItem(STORAGE_KEY);
+    if (savedNote) {
+        textarea.value = savedNote;
+    }
+}
 
-        console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
-    });
+function saveNoteValue(storage, value) {
+    if (!storage) {
+        return;
+    }
 
-});
+    storage.setItem(STORAGE_KEY, value);
+}
+
+function saveNote(storage, value) {
+    saveNoteValue(storage, value);
+    const status = document.getElementById('statusMessage');
+    if (status) {
+        status.textContent = 'Anotação salva com sucesso!';
+        window.setTimeout(() => {
+            status.textContent = '';
+        }, 1800);
+    }
+}
+
+function clearNote(storage, textarea) {
+    if (textarea) {
+        textarea.value = '';
+    }
+
+    if (storage) {
+        storage.removeItem(STORAGE_KEY);
+    }
+}
+
+function init() {
+    const textarea = document.getElementById('blocoDeNotas');
+    const salvarBtn = document.getElementById('salvarBtn');
+    const limparBtn = document.getElementById('limparBtn');
+
+    if (!textarea) {
+        return;
+    }
+
+    const storage = getLocalStorage();
+    loadSavedNote(textarea, storage);
+
+    const debouncedSave = debounce((event) => {
+        saveNoteValue(storage, event.target.value);
+    }, 200);
+
+    textarea.addEventListener('input', debouncedSave);
+
+    if (salvarBtn) {
+        salvarBtn.addEventListener('click', () => saveNote(storage, textarea.value));
+    }
+
+    if (limparBtn) {
+        limparBtn.addEventListener('click', () => clearNote(storage, textarea));
+    }
+}
+
+document.addEventListener('DOMContentLoaded', init);

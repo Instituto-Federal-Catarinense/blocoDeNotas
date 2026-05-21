@@ -1,4 +1,5 @@
 const STORAGE_KEY = 'blocoDeNotas';
+const DARK_MODE_KEY = 'modoEscuro';
 const statusMessages = {
     waiting: 'Aguardando alterações...',
     saved: 'Alterações salvas localmente.',
@@ -20,7 +21,8 @@ const isLocalStorageAvailable = () => {
 const getElements = () => ({
     blocoDeNotas: document.getElementById('blocoDeNotas'),
     status: document.getElementById('status'),
-    limparNotas: document.getElementById('limparNotas')
+    limparNotas: document.getElementById('limparNotas'),
+    modoEscuro: document.getElementById('modoEscuro')
 });
 
 const saveNote = (texto) => {
@@ -44,9 +46,33 @@ const updateStatus = (element, message) => {
     element.textContent = message;
 };
 
+const toggleDarkMode = () => {
+    const isDarkMode = document.body.classList.toggle('dark-mode');
+    if (isLocalStorageAvailable()) {
+        localStorage.setItem(DARK_MODE_KEY, isDarkMode);
+    }
+};
+
+const loadDarkMode = () => {
+    if (!isLocalStorageAvailable()) {
+        return false;
+    }
+    return localStorage.getItem(DARK_MODE_KEY) === 'true';
+};
+
+const applyDarkMode = (isDarkMode) => {
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+    }
+};
+
 const init = () => {
-    const { blocoDeNotas, status, limparNotas } = getElements();
+    const { blocoDeNotas, status, limparNotas, modoEscuro } = getElements();
     const savedNote = loadNote();
+    const isDarkMode = loadDarkMode();
+
+    // Aplicar modo escuro se estava ativo
+    applyDarkMode(isDarkMode);
 
     if (savedNote !== null) {
         blocoDeNotas.value = savedNote;
@@ -68,6 +94,10 @@ const init = () => {
         saveNote('');
         updateStatus(status, statusMessages.cleared);
     });
+
+    modoEscuro.addEventListener('click', toggleDarkMode);
 };
+
+document.addEventListener('DOMContentLoaded', init);
 
 document.addEventListener('DOMContentLoaded', init);

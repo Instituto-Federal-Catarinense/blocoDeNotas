@@ -1,50 +1,195 @@
-/* Estilos gerais para a página */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
+    margin: 0;
+    min-height: 100vh;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--body-bg);
+    color: var(--body-text);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    padding: 24px;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* O contêiner principal que centraliza nosso conteúdo */
+:root {
+    --body-bg: linear-gradient(180deg, #fdc7ff 0%, #f9b8ff 30%, #fb9ee9 70%, #ff77d3 100%);
+    --body-text: #110f21;
+    --card-bg: #fff1ff;
+    --card-text: #210033;
+    --paragraph: #7b1fa2;
+    --label-color: #9c27b0;
+    --textarea-bg: #fff0ff;
+    --textarea-text: #210033;
+    --textarea-border: #d946ef;
+    --button-primary: #7c3aed;
+    --button-secondary: #22d3ee;
+    --button-secondary-text: #110f21;
+    --button-tertiary: #ec4899;
+    --button-tertiary-text: #ffffff;
+    --status-success: #0ea5e9;
+    --status-error: #db2777;
+}
+
+:root[data-theme='dark'] {
+    --body-bg: linear-gradient(180deg, #110a2a 0%, #0a132b 60%, #07162f 100%);
+    --body-text: #ece4ff;
+    --card-bg: #110b2f;
+    --card-text: #f5ecff;
+    --paragraph: #b9a7ff;
+    --label-color: #d8c3ff;
+    --textarea-bg: #1c1240;
+    --textarea-text: #f3ebff;
+    --textarea-border: #8b5cf6;
+    --button-primary: #7c3aed;
+    --button-secondary: #38bdf8;
+    --button-secondary-text: #f8fafc;
+    --button-tertiary: #db2777;
+    --button-tertiary-text: #ffffff;
+}
+
 .container {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 90%;
-    max-width: 600px;
+    width: min(100%, 620px);
+    background: var(--card-bg);
+    color: var(--card-text);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.16);
 }
 
 h1 {
-    color: #007bff;
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 2.5rem);
 }
 
 p {
-    color: #6c757d;
-    margin-bottom: 20px;
+    margin: 12px 0 24px;
+    color: var(--paragraph);
+    line-height: 1.6;
 }
 
-/* Estilizando nossa área de texto (textarea) */
+.note-form {
+    display: grid;
+    gap: 16px;
+}
+
+label {
+    font-weight: 600;
+    color: var(--label-color);
+    text-align: left;
+}
+
+#noteTitle {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--textarea-border);
+    background: var(--textarea-bg);
+    color: var(--textarea-text);
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+#noteTitle:focus {
+    outline: none;
+    border-color: #a78bfa;
+    box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.12);
+}
+
 #blocoDeNotas {
     width: 100%;
-    height: 200px;
-    padding: 15px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    font-size: 16px;
-    line-height: 1.5;
-    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
-    resize: vertical; /* Permite que o usuário redimensione a altura */
+    min-height: 240px;
+    padding: 16px;
+    border: 1px solid var(--textarea-border);
+    border-radius: 16px;
+    font-size: 1rem;
+    line-height: 1.7;
+    resize: vertical;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+    background: var(--textarea-bg);
+    color: var(--textarea-text);
 }
 
 #blocoDeNotas:focus {
     outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-start;
+}
+
+button {
+    border: none;
+    border-radius: 999px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(147, 197, 253, 0.8);
+    outline-offset: 3px;
+}
+
+#exportBtn {
+    background: var(--button-primary);
+    color: #ffffff;
+}
+
+#limparBtn {
+    background: var(--button-secondary);
+    color: var(--button-secondary-text);
+}
+
+#temaBtn {
+    background: var(--button-tertiary);
+    color: var(--button-tertiary-text);
+}
+
+.status {
+    min-height: 1.5rem;
+    color: #334155;
+    font-size: 0.95rem;
+}
+
+.status.success {
+    color: var(--status-success);
+}
+
+.status.error {
+    color: var(--status-error);
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 24px;
+    }
+
+    button {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 24px;
+    }
+
+    button {
+        flex: 1 1 100%;
+    }
 }

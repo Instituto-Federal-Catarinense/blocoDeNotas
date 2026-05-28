@@ -4,17 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bloco de Notas da Sophia</title>
+
+    <!-- Fonte delicada -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <div class="container">
       <h1>Meu Bloco de Notas</h1>
-      <p>Suas anotações são salvas automaticamente no seu navegador.</p>
+
+      <p>Suas anotações são salvas automaticamente no navegador ✨</p>
 
       <textarea
         id="blocoDeNotas"
-        placeholder="Comece a digitar aqui..."
+        aria-label="Bloco de notas"
+        placeholder="Comece a escrever algo especial..."
       ></textarea>
+
+      <div id="saveStatus" class="status" aria-live="polite"></div>
+
+      <!-- autoria -->
+      <span class="autoria">Sophia M.</span>
     </div>
 
     <script src="script.js"></script>

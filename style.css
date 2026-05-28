@@ -1,50 +1,146 @@
-/* Estilos gerais para a página */
+/* Fundo da página */
 body {
-    font-family: sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #fff5fb, #f6efff);
+  color: #7e5b91;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  margin: 0;
 }
 
-/* O contêiner principal que centraliza nosso conteúdo */
+/* Container principal */
 .container {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 90%;
-    max-width: 600px;
+  position: relative;
+
+  background: rgba(255, 255, 255, 0.8);
+
+  width: 90%;
+  max-width: 700px;
+
+  padding: 35px;
+
+  border-radius: 28px;
+
+  backdrop-filter: blur(8px);
+
+  box-shadow: 0 10px 30px rgba(214, 176, 255, 0.25);
+
+  text-align: center;
+
+  transition: 0.3s;
 }
 
+/* Título */
 h1 {
-    color: #007bff;
+  font-family: "Dancing Script", cursive;
+  font-size: 3.3rem;
+  color: #d17bc4;
+  margin-bottom: 8px;
 }
 
+/* Texto */
 p {
-    color: #6c757d;
-    margin-bottom: 20px;
+  color: #9578a8;
+  margin-bottom: 22px;
+  font-size: 1rem;
 }
 
-/* Estilizando nossa área de texto (textarea) */
+/* Bloco de notas */
 #blocoDeNotas {
-    width: 100%;
-    height: 200px;
-    padding: 15px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    font-size: 16px;
-    line-height: 1.5;
-    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
-    resize: vertical; /* Permite que o usuário redimensione a altura */
+  width: 100%;
+  height: 320px;
+
+  padding: 18px;
+
+  border: 2px solid #ead4ff;
+  border-radius: 18px;
+
+  background: linear-gradient(180deg, #fffafd, #faf4ff);
+
+  color: #6f547f;
+
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+
+  line-height: 1.7;
+
+  box-sizing: border-box;
+
+  resize: vertical;
+
+  transition: all 0.25s ease;
+
+  box-shadow: inset 0 3px 10px rgba(220, 185, 255, 0.12);
 }
 
+/* Placeholder */
+#blocoDeNotas::placeholder {
+  color: #c4a6d4;
+}
+
+/* Quando clicar */
 #blocoDeNotas:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+
+  border-color: #d7a5ff;
+
+  box-shadow:
+    0 0 15px rgba(221, 172, 255, 0.35),
+    inset 0 3px 10px rgba(220, 185, 255, 0.1);
+}
+
+/* Status de salvamento */
+.status {
+  margin-top: 14px;
+
+  font-size: 0.95rem;
+
+  min-height: 1.2em;
+
+  transition: 0.3s;
+}
+
+/* Erro */
+.status.error {
+  color: #d66a8f;
+}
+
+/* Salvo */
+.status.saved {
+  color: #b06dd8;
+  font-weight: 500;
+}
+
+/* Autoria */
+.autoria {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+
+  font-size: 0.85rem;
+
+  color: #c19bd8;
+
+  opacity: 0.8;
+
+  font-style: italic;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .container {
+    padding: 25px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  #blocoDeNotas {
+    height: 260px;
+  }
 }

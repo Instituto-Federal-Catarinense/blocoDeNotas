@@ -146,3 +146,47 @@ button#baixarBtn {
         min-width: 0;
     }
 }
+
+.download-panel {
+    margin-top: 12px;
+    padding: 14px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(248,249,250,0.95));
+    border-left: 6px solid var(--primary);
+    display: none;
+}
+
+.download-panel[aria-hidden="false"] {
+    display: block;
+}
+
+.download-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+#filenameInput {
+    flex: 1 1 auto;
+    padding: 10px 12px;
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.6);
+}
+
+.download-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+button.ghost {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    box-shadow: none;
+}
+
+@media (max-width: 480px) {
+    .download-controls { flex-direction: column; align-items: stretch; }
+    .download-buttons { justify-content: flex-end; }
+}

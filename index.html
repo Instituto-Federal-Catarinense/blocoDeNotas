@@ -21,6 +21,17 @@
             <button type="button" id="baixarBtn">Baixar (.txt)</button>
         </div>
 
+        <div id="downloadPanel" class="download-panel" aria-hidden="true">
+            <label for="filenameInput" class="label">Nome do arquivo</label>
+            <div class="download-controls">
+                <input id="filenameInput" type="text" placeholder="nome-do-arquivo.txt" />
+                <div class="download-buttons">
+                    <button type="button" id="confirmarBaixarBtn">Confirmar</button>
+                    <button type="button" id="cancelarBaixarBtn" class="ghost">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
         <p id="status" class="status" aria-live="polite">Carregando...</p>
     </div>
 

@@ -5,6 +5,8 @@ const blocoDeNotas = document.getElementById('blocoDeNotas');
 const limparBtn = document.getElementById('limparBtn');
 const restaurarBtn = document.getElementById('restaurarBtn');
 const statusLabel = document.getElementById('status');
+const salvarBtn = document.getElementById('salvarBtn');
+const baixarBtn = document.getElementById('baixarBtn');
 
 let saveTimeoutId = null;
 
@@ -32,6 +34,38 @@ function saveNote() {
 
     localStorage.setItem(STORAGE_KEY, blocoDeNotas.value);
     setStatus('Nota salva automaticamente.', 'success');
+}
+
+function manualSave() {
+    if (!isLocalStorageAvailable()) {
+        setStatus('Não foi possível salvar. Verifique as configurações do navegador.', 'error');
+        return;
+    }
+
+    localStorage.setItem(STORAGE_KEY, blocoDeNotas.value);
+    const now = new Date();
+    const time = now.toLocaleTimeString();
+    setStatus(`Nota salva em ${time}.`, 'success');
+}
+
+function downloadNote() {
+    const content = blocoDeNotas.value || '';
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+
+    const now = new Date();
+    const pad = (n) => String(n).padStart(2, '0');
+    const filename = `nota-${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}-${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}.txt`;
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    setStatus('Arquivo preparado para download.', 'success');
 }
 
 function loadNote() {
@@ -72,4 +106,15 @@ document.addEventListener('DOMContentLoaded', () => {
     blocoDeNotas.addEventListener('input', handleInput);
     limparBtn.addEventListener('click', clearNote);
     restaurarBtn.addEventListener('click', restoreNote);
+    if (salvarBtn) salvarBtn.addEventListener('click', manualSave);
+    if (baixarBtn) baixarBtn.addEventListener('click', downloadNote);
+
+    // Atalho Ctrl/Cmd+S para salvar
+    document.addEventListener('keydown', (e) => {
+        const key = e.key.toLowerCase();
+        if ((e.ctrlKey || e.metaKey) && key === 's') {
+            e.preventDefault();
+            manualSave();
+        }
+    });
 });

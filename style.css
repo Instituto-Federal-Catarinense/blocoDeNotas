@@ -1,85 +1,113 @@
-/* Estilos gerais para a página */
+:root {
+    color-scheme: dark;
+    --bg: #07111f;
+    --panel: rgba(8, 15, 28, 0.82);
+    --panel-border: rgba(148, 163, 184, 0.18);
+    --text: #eff6ff;
+    --muted: #cbd5e1;
+    --accent: #8b5cf6;
+    --accent-2: #22d3ee;
+    --shadow: 0 18px 40px rgba(8, 15, 28, 0.45);
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at top, rgba(124, 58, 237, 0.18), transparent 30%),
+        linear-gradient(135deg, #040811 0%, #07111f 45%, #0f172a 100%);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    padding: 24px;
 }
 
-/* O contêiner principal que centraliza nosso conteúdo */
 .container {
-    background-color: #ffffff;
+    width: min(92vw, 720px);
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 90%;
-    max-width: 600px;
 }
 
 h1 {
-    color: #007bff;
+    margin: 0 0 10px;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    color: #ffffff;
+    letter-spacing: -0.03em;
 }
 
 p {
-    color: #6c757d;
-    margin-bottom: 20px;
+    margin: 0 0 18px;
+    color: var(--muted);
+    line-height: 1.5;
 }
 
-/* Estilizando nossa área de texto (textarea) */
 #blocoDeNotas {
     width: 100%;
-    height: 200px;
-    padding: 15px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
+    min-height: 240px;
+    padding: 16px;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    border-radius: 18px;
+    background: rgba(15, 23, 42, 0.92);
+    color: var(--text);
     font-size: 16px;
-    line-height: 1.5;
-    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
-    resize: vertical; /* Permite que o usuário redimensione a altura */
+    line-height: 1.55;
+    resize: vertical;
+    box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.35);
 }
 
 #blocoDeNotas:focus {
     outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: rgba(139, 92, 246, 0.9);
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.18);
 }
 
 .actions {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     gap: 12px;
     margin-top: 16px;
     flex-wrap: wrap;
 }
 
 button {
+    border: 0;
+    border-radius: 999px;
     padding: 10px 18px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
+    background: linear-gradient(135deg, var(--accent), #6366f1);
     color: #fff;
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    box-shadow: 0 10px 20px rgba(124, 58, 237, 0.25);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
 }
 
 button:hover {
-    background-color: #0056d6;
+    transform: translateY(-1px);
+    filter: brightness(1.08);
+    box-shadow: 0 14px 24px rgba(124, 58, 237, 0.35);
 }
 
-button:focus {
-    outline: 2px solid #0056d6;
+button:focus-visible {
+    outline: 3px solid rgba(34, 211, 238, 0.45);
     outline-offset: 2px;
 }
 
 .status {
-    color: #6c757d;
+    color: #dbeafe;
     font-size: 0.95rem;
     min-width: 160px;
     text-align: right;

@@ -76,5 +76,5 @@ function initializeNotes() {
         }
     });
 }
-
+//teste
 document.addEventListener('DOMContentLoaded', initializeNotes);

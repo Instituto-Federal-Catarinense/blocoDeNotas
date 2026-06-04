@@ -8,9 +8,9 @@
 font-family: tapete;
     src: url(./Ballet/Tapestry-Regular.ttf);
 }
-
+/*teste*/
 :root {
-    --bg: #704a4a;
+    --bg: #704a4b;
     --panel: #2b0f15;
     --text: #efd8e1;
     --muted: #b89faf;

@@ -87,10 +87,10 @@ button:focus {
     min-height: 240px;
     padding: 15px;
     border: 1px solid var(--border);
-    color:#371321;
+    color: var(--panel);
     border-radius: 4px;
-    font-size: 20px;
-    font-family: "baile";
+    font-size: 15px;
+    font-family: "tapete";
     line-height: 1.5;
     box-sizing: border-box; /* Garante que o padding não aumente a largura total */
     resize: vertical; /* Permite que o usuário redimensione a altura */

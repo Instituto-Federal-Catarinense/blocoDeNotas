@@ -48,3 +48,22 @@ p {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
+body.pink-mood{
+    background-color: pink;
+}
+ body.pink-mood h1{
+    color: rgb(168, 35, 139);
+ }
+
+ body.pink-mood button{
+    background-color: pink;
+ }
+
+ body.pink-mood p{
+    color: palevioletred;
+ }
+
+.corBloco{
+    color:palevioletred; 
+ }

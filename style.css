@@ -1,3 +1,11 @@
+:root{
+    --preto:#0e0d0df6;
+    --branco:#ffffff;
+    --roxo:#9e40eb;
+    --vermelho:#d62e2e;
+    --Azul:#3388f8;
+    --dark:#000000;
+}
 /* Estilos gerais para a página */
 body {
     font-family: sans-serif;
@@ -22,7 +30,7 @@ body {
 }
 
 h1 {
-    color: #007bff;
+    color: #8707f0;
 }
 
 p {
@@ -45,6 +53,29 @@ p {
 
 #blocoDeNotas:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: #8707f0;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.botao{
+    background-color: #8707f0;
+    font-size: 15pt;
+    border: none;
+    border-radius: 5px;
+    size: 10px;
+    color: #ffffff;
+    transition: all;
+}
+
+.botao:hover{
+    background-color: #6b05be;
+}
+
+.botao:active{
+    background-color: #510491;
+    font-size: 14pt;
+    transition: all;
+}
+.dark{
+    background-color:#000000;
 }

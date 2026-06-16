@@ -8,15 +8,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
     const blocoDeNotas = document.getElementById('blocoDeNotas');
+    const limparnotas = document.getElementById('limpanotas');
+    
+    limparnotas.addEventListener('click', () => { 
+    
+    blocoDeNotas.value ='';
 
-    // 2. CARREGANDO DADOS DO LOCALSTORAGE
+    localStorage.removeItem('minhaNota');
+
+    console.log("Notas limpar!");
+    //nota salva 
+    const salvanotas = document.getElementById('salvanotas')
+    });
+    // 2. CARREGANDO DADOS DO LOCALSlimpar NotasTORAGE
     // ------------------------------------
     // O 'localStorage' é um recurso do navegador que permite salvar informações
     // que persistem mesmo depois que o navegador é fechado.
     // Usamos 'localStorage.getItem()' para buscar um item salvo.
     // Aqui, estamos procurando por um item que salvamos com a chave 'minhaNota'.
     const notaSalva = localStorage.getItem('minhaNota');
-
+    
     // Verificamos se encontramos alguma nota salva.
     if (notaSalva) {
         // Se 'notaSalva' não for nulo (ou seja, existe algo salvo),
@@ -34,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
     //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
     //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
+    salvanotas.addEventListener('click', () => {
         // 4. SALVANDO DADOS NO LOCALSTORAGE
         // -----------------------------------
         // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas

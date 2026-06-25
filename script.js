@@ -111,7 +111,7 @@ function aura() {
   egoe += 10
   document.getElementById("sla").textContent = "quantidade de aura: " + xis
   document.getElementById("z").textContent= "+" + egoe + " de aura"
-  botao.style.backgroundColor = "var(--accent)";
+  botao.style.backgroundColor = "rgb(251, 230, 192)";
   botao.style.color = "var(--panel)"
   reinicia.style.display = "block"
 }
@@ -119,7 +119,7 @@ function ego() {
   xis += 100000000
   document.getElementById("sla").textContent = "quantidade de aura: " + xis
    document.getElementById("z").textContent= "+100000000 de aura"
-  botao.style.backgroundColor = "var(--muted)"
+  botao.style.backgroundColor = "var(--accent)"
   botao.style.color = "var(--panel)"
   tiratexto()
 }

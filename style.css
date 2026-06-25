@@ -102,3 +102,13 @@ button:focus {
     border-color: var(--primary);
     box-shadow: 0 0 8px rgba(196, 46, 111, 0.18);
 }
+
+#joguelo {
+    display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
+#res {
+    width: 150px;
+    height: 50px;
+}

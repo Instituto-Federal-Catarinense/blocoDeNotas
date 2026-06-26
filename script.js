@@ -100,9 +100,7 @@ reinicia.addEventListener("click", function (){
 })
 
 function mousefora() {
-  becap = egoe
   egoe = 0
-  document.getElementById("z").textContent= "+" + becap + " de aura"
   botao.style.backgroundColor = "var(--primary)"
   botao.style.color = "var(--panel)"
 }
@@ -125,7 +123,7 @@ function ego() {
 }
 function menosaura() {
   let calmacalabreso = 0
-  calmacalabreso += ((Math.round(Math.random()*10 + 10))*(Math.round(Math.random() * 10) + 10))*10
+  calmacalabreso += (Math.round(Math.random()*10 + 10))*(Math.round(Math.random() * 10) + 10)*10
   if (calmacalabreso < 0) { calmacalabreso *= -1 } else {}
   xis -= calmacalabreso
   document.getElementById("sla").textContent = "quantidade de aura: " + xis

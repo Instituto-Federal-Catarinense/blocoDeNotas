@@ -8,7 +8,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
     const blocoDeNotas = document.getElementById('blocoDeNotas');
+    const btnLimpaNotas = document.getElementById('btnLimparNotas');
+    const btnSalvarNotas = document.getElementById('btnSalvarNotas');
+    const btnModoEscruro = document.getElementById('btnModoEscuro');
 
+
+    btnLimpaNotas.addEventListener('click', () =>{
+
+        blocoDeNotas.value = '';
+
+        localStorage.removeItem('minhaNota');
+        console.log("Notas limpas e removidas do localStorage!");
+    })
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
     // O 'localStorage' é um recurso do navegador que permite salvar informações
@@ -30,11 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // O 'addEventListener' é como um "ouvinte" que fica esperando por uma ação específica.
     //
     // Parâmetros do addEventListener:
-    //   - O primeiro é o TIPO DE EVENTO que queremos ouvir. 'input' é disparado
-    //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
     //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
     //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
+    btnSalvarNotas.addEventListener('click', () => {
         // 4. SALVANDO DADOS NO LOCALSTORAGE
         // -----------------------------------
         // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas
@@ -48,6 +57,15 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('minhaNota', blocoDeNotas.value);
 
         console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
+    });
+
+    btnModoEscuro.addEventListener('click', () => {
+        const body = document.getElementById('body');
+        if (body.className == "Dark"){
+            body.className = "White"
+        }else{
+            body.className = "Dark"
+        }
     });
 
 });

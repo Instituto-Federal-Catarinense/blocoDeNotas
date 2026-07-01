@@ -48,3 +48,28 @@ p {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
+body.Dark #blocoDeNotas::placeholder{
+    color: white;
+}
+
+body.Dark{
+    background-color: black;
+}
+
+body.Dark textarea{
+    background-color: darkgray;
+}
+
+body.Dark p{
+    color: white;
+}
+
+body.Dark .container{
+    background-color: gray;
+}
+
+body.Dark button{
+    background-color: black;
+    color: white;
+}

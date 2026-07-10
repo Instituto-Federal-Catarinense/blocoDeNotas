@@ -1,53 +1,133 @@
-// Espera o conteúdo da página carregar completamente antes de executar o script.
-// É uma boa prática para evitar erros de JavaScript tentando acessar elementos
-// que ainda não existem na página.
-document.addEventListener('DOMContentLoaded', () => {
+const STORAGE_KEY = 'blocoDeNotas.conteudo';
+const BACKUP_KEY = 'blocoDeNotas.backup';
 
-    // 1. SELECIONANDO O ELEMENTO
-    // ----------------------------
-    // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
-    // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
+function getSavedNote() {
+    try {
+        return localStorage.getItem(STORAGE_KEY) || '';
+    } catch (error) {
+        console.warn('Não foi possível acessar o localStorage.', error);
+        return '';
+    }
+}
+
+function getBackupNote() {
+    try {
+        return localStorage.getItem(BACKUP_KEY) || '';
+    } catch (error) {
+        console.warn('Não foi possível acessar o backup.', error);
+        return '';
+    }
+}
+
+function saveNote(content) {
+    try {
+        localStorage.setItem(STORAGE_KEY, content);
+    } catch (error) {
+        console.warn('Não foi possível salvar a nota.', error);
+    }
+}
+
+function saveBackup(content) {
+    try {
+        localStorage.setItem(BACKUP_KEY, content);
+    } catch (error) {
+        console.warn('Não foi possível salvar o backup.', error);
+    }
+}
+
+function initializeNotes() {
     const blocoDeNotas = document.getElementById('blocoDeNotas');
+    const botaoLimpar = document.getElementById('limparNota');
+    const botaoSalvar = document.getElementById('salvarNota');
+    const botaoRestaurar = document.getElementById('restaurarNota');
 
-    // 2. CARREGANDO DADOS DO LOCALSTORAGE
-    // ------------------------------------
-    // O 'localStorage' é um recurso do navegador que permite salvar informações
-    // que persistem mesmo depois que o navegador é fechado.
-    // Usamos 'localStorage.getItem()' para buscar um item salvo.
-    // Aqui, estamos procurando por um item que salvamos com a chave 'minhaNota'.
-    const notaSalva = localStorage.getItem('minhaNota');
-
-    // Verificamos se encontramos alguma nota salva.
-    if (notaSalva) {
-        // Se 'notaSalva' não for nulo (ou seja, existe algo salvo),
-        // nós colocamos o valor salvo de volta no nosso 'blocoDeNotas'.
-        blocoDeNotas.value = notaSalva;
+    if (!blocoDeNotas || !botaoLimpar || !botaoSalvar || !botaoRestaurar) {
+        console.error('Elementos necessários não foram encontrados no DOM.');
+        return;
     }
 
-    // 3. ADICIONANDO UM 'EVENTLISTENER'
-    // ---------------------------------
-    // Agora, a parte principal: queremos fazer algo sempre que o usuário digitar.
-    // O 'addEventListener' é como um "ouvinte" que fica esperando por uma ação específica.
-    //
-    // Parâmetros do addEventListener:
-    //   - O primeiro é o TIPO DE EVENTO que queremos ouvir. 'input' é disparado
-    //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
-    //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
-    //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
-        // 4. SALVANDO DADOS NO LOCALSTORAGE
-        // -----------------------------------
-        // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas
-        // e o salvamos no localStorage.
-        // Usamos 'localStorage.setItem()' para isso.
-        //
-        // Parâmetros do setItem:
-        //   - O primeiro é a CHAVE (o "nome" do nosso dado). Usaremos a mesma chave 'minhaNota'.
-        //   - O segundo é o VALOR que queremos salvar. 'blocoDeNotas.value' contém o texto
-        //     que está atualmente na área de texto.
-        localStorage.setItem('minhaNota', blocoDeNotas.value);
+    blocoDeNotas.value = getSavedNote();
 
-        console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
+    blocoDeNotas.addEventListener('input', event => {
+        saveNote(event.target.value);
     });
 
-});
+    botaoSalvar.addEventListener('click', () => {
+        const conteudo = blocoDeNotas.value;
+        saveBackup(conteudo);
+        saveNote(conteudo);
+        alert('Notas salvas com sucesso!');
+    });
+
+    botaoLimpar.addEventListener('click', () => {
+        blocoDeNotas.value = '';
+        saveNote('');
+        blocoDeNotas.focus();
+    });
+
+    botaoRestaurar.addEventListener('click', () => {
+        const backup = getBackupNote();
+        if (backup) {
+            blocoDeNotas.value = backup;
+            saveNote(backup);
+            alert('Última nota salva foi restaurada!');
+        } else {
+            alert('Nenhuma nota salva anteriormente encontrada.');
+        }
+    });
+}
+
+//document.getElementsByTagName('p')[0].textContent = getBackupNote();
+//teste
+document.addEventListener('DOMContentLoaded', initializeNotes);
+
+let xis = 0
+let egoe = 0
+const botao = document.getElementById("butao")
+const reinicia = document.getElementById("res")
+reinicia.style.display = "none"
+botao.style.width = "300px";
+botao.style.height = "75px";
+botao.style.fontSize = "35px";
+botao.style.borderRadius = "50%";
+botao.style.backgroundColor = "var(--primary)";
+
+reinicia.addEventListener("click", function (){
+  xis = 0
+  document.getElementById("sla").textContent = "quantidade de aura: " + xis
+  document.getElementById("z").textContent= ""
+  this.style.display = "none"
+})
+
+function mousefora() {
+  egoe = 0
+  botao.style.backgroundColor = "var(--primary)"
+  botao.style.color = "var(--panel)"
+}
+function aura() {
+  xis += 10
+  egoe += 10
+  document.getElementById("sla").textContent = "quantidade de aura: " + xis
+  document.getElementById("z").textContent= "+" + egoe + " de aura"
+  botao.style.backgroundColor = "rgb(251, 230, 192)";
+  botao.style.color = "var(--panel)"
+  reinicia.style.display = "block"
+}
+function ego() {
+  xis += 100000000
+  document.getElementById("sla").textContent = "quantidade de aura: " + xis
+   document.getElementById("z").textContent= "+100000000 de aura"
+  botao.style.backgroundColor = "var(--accent)"
+  botao.style.color = "var(--panel)"
+  tiratexto()
+}
+function menosaura() {
+  let calmacalabreso = 0
+  calmacalabreso += (Math.round(Math.random()*10 + 10))*(Math.round(Math.random() * 10) + 10)*10
+  if (calmacalabreso < 0) { calmacalabreso *= -1 } else {}
+  xis -= calmacalabreso
+  document.getElementById("sla").textContent = "quantidade de aura: " + xis
+  document.getElementById("z").textContent= "-" + calmacalabreso + " de aura"
+  botao.style.backgroundColor = "var(--panel)";
+  botao.style.color = "var(--muted)"
+}

@@ -1,8 +1,28 @@
 /* Estilos gerais para a página */
+@font-face {
+    font-family: baile;
+    src: url(./Ballet/Ballet-Regular-VariableFont_opsz.ttf);
+}
+
+@font-face {
+font-family: tapete;
+    src: url(./Ballet/Tapestry-Regular.ttf);
+}
+/*teste*/
+:root {
+    --bg: #704a4b;
+    --panel: #2b0f15;
+    --text: #efd8e1;
+    --muted: #b89faf;
+    --primary: #d26767;
+    --accent: #ffb703;
+    --border: rgba(246, 230, 236, 0.08);
+}
+
 body {
     font-family: sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
+    background-color: var(--bg);
+    color: var(--text);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +32,7 @@ body {
 
 /* O contêiner principal que centraliza nosso conteúdo */
 .container {
-    background-color: #ffffff;
+    background-color: var(--panel);
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -22,29 +42,73 @@ body {
 }
 
 h1 {
-    color: #007bff;
+    color: var(--primary);
+    font-family: baile;
+    font-size: 50px;
 }
 
 p {
-    color: #6c757d;
+    color: var(--muted);
     margin-bottom: 20px;
+    font-family: tapete;
+}
+
+.controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+button {
+    background-color: var(--primary);
+    color: var(--panel);
+    border: none;
+    border-radius: 4px;
+    padding: 10px 18px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: baile;
+    transition: background-color 0.2s ease;
+    margin-left: 10px;
+}
+
+button:hover {
+    filter: brightness(0.95);
+}
+
+button:focus {
+    outline: 2px solid rgba(196, 46, 121, 0.35);
+    outline-offset: 2px;
 }
 
 /* Estilizando nossa área de texto (textarea) */
 #blocoDeNotas {
     width: 100%;
-    height: 200px;
+    min-height: 240px;
     padding: 15px;
-    border: 1px solid #ced4da;
+    border: 1px solid var(--border);
+    color: var(--panel);
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 15px;
+    font-family: "tapete";
     line-height: 1.5;
     box-sizing: border-box; /* Garante que o padding não aumente a largura total */
     resize: vertical; /* Permite que o usuário redimensione a altura */
+    background-color: rgb(251, 230, 192);
 }
 
 #blocoDeNotas:focus {
     outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: var(--primary);
+    box-shadow: 0 0 8px rgba(196, 46, 111, 0.18);
+}
+
+#joguelo {
+    display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
+#res {
+    width: 150px;
+    height: 50px;
 }

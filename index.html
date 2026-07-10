@@ -3,18 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloco de Notas Moderno</title>
+    <title>Bloco de Notas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
-        <h1>Bloco de Notas do Joédio</h1>
+        <h1>Meu Bloco de Notas</h1>
         <p>Suas anotações são salvas automaticamente no seu navegador.</p>
-        
+
+        <div class="controls">
+            <button id="limparNota" type="button">Limpar notas</button>
+             <button id="salvarNota" type="button">Salvar notas</button>
+            <button id="restaurarNota" type="button">Última nota salva</button>
+        </div>
+
         <textarea id="blocoDeNotas" placeholder="Comece a digitar aqui..."></textarea>
     </div>
+    <p></p>
 
+<div id="joguelo">
+    <p>Mova o mouse nesse botão para farmar aura (não clique)</p>
+
+<button id="butao" onmousemove="aura()" ondblclick="ego()" onclick="menosaura()" onmouseout="mousefora()">Aqui</button>
+
+<p id="sla">quantidade de aura:</p>
+<p id="z"></p> <br>
+<button id="res">restaurar aura</button>
+</div>
     <script src="script.js"></script>
 </body>
 </html>

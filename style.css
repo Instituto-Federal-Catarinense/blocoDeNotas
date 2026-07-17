@@ -48,3 +48,51 @@ p {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
+#btnSalvarNotas {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Botão Modo Escuro */
+#btnModoEscuro {
+    background-color: #343a40;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Modo escuro ativado no body */
+body.dark {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Ajusta container no modo escuro */
+body.dark .container {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+/* Ajusta textarea no modo escuro */
+body.dark #blocoDeNotas {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+/* Ajusta borda e sombra ao focar no modo escuro */
+body.dark #blocoDeNotas:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 5px rgba(128, 189, 255, 0.5);
+}
+

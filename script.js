@@ -8,6 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
     const blocoDeNotas = document.getElementById('blocoDeNotas');
+    const btnLimparNotas = document.getElementById("LimparNotas");
+    const btnSalvarNotas = document.getElementById("SalvarNotas");
+    // Adicionamos um evento de clique ao botão para limpar as 
+    btnLimparNotas.addEventListener('click', () => {
+        //Quando o botão é clicado, limpamos o conteudo do bloco de notas
+        blocoDeNotas.value = '';
+        // E também removemos a nota salva do localStorage
+        localStorage.removeItem('minhaNota')
+        console.log("Notas limpas e removidas do localStorage")
+    });
 
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
@@ -34,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
     //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
     //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
+    btnSalvarNotas.addEventListener('click', () => {
         // 4. SALVANDO DADOS NO LOCALSTORAGE
         // -----------------------------------
         // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas
@@ -49,5 +59,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
     });
+
+    const BtnTrocarCores = document.getElementById('TrocarTema');
+    const TemaAtual = localStorage.getItem('Tema');
+
+    if(TemaAtual == 'claro') {
+        document.body.classList.add('modo-claro');
+    }
+
+    BtnTrocarCores.addEventListener('click', () => {
+        document.body.classList.toggle('modo-claro');
+        const Tema = document.body.classList.contains('modo-claro') ? 'claro' : 'escuro';
+        localStorage.setItem('Tema', Tema);
+        console.log("Trocou de cor");
+    });
+
 
 });

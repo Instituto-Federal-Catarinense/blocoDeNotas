@@ -43,8 +43,27 @@ p {
     resize: vertical; /* Permite que o usuário redimensione a altura */
 }
 
+/*:focus quando o elemento foi clicado*/
 #blocoDeNotas:focus {
     outline: none;
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
+#btnLimparNotas {
+    border-radius: 5%;
+    color: #37393b;
+    margin-bottom: 20px;
+    border-color: #c4c4c4;}
+
+#btnLimparNotas:hover{
+    border-radius: 5%;
+    color: #00478e;
+    margin-bottom: 20px;
+    border-color: #bef3ff;
+    background-color:  #1a87f369;
+    transition: 0.5s;}
+
+    .FundoRosa{
+        background-color: #ffbee2;
+    }

@@ -8,7 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
     const blocoDeNotas = document.getElementById('blocoDeNotas');
-
+    const btnlimparNotas = document.getElementById('limparNotas')
+    const btnSalvarNotas = document.getElementById('SalvarNotas')
+    // adiciona um evento de clique ao Botão "limpar Notas"
+    btnlimparNotas.addEventListener('click', () => {
+        blocoDeNotas.value = '';
+        localStorage.removeItem('minhaNota');
+        console.log("Notas limpas!");
+    });
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
     // O 'localStorage' é um recurso do navegador que permite salvar informações
@@ -34,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
     //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
     //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
+    btnSalvarNotas.addEventListener('click', () => {
         // 4. SALVANDO DADOS NO LOCALSTORAGE
         // -----------------------------------
         // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas
@@ -51,3 +58,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+function verifica(obj) {
+    if (Mudar) {
+      jogar = true;
+      tentativas++;
+  
+      let sorteado = Math.floor(Math.random() * 4);
+  
+      if (obj.id == sorteado.toString()) {
+        exibirImagemNaCarta(obj, 'acerto');
+        acertos++;
+      } else {
+        exibirImagemNaCarta(obj, 'erro');
+        const cartaCerta = document.getElementById(sorteado);
+        exibirImagemNaCarta(cartaCerta, 'acerto');
+      }
+  
+      atualizaPlacar(acertos, tentativas);
+    } else {
+      alert('Clique em "Jogar novamente"');
+    }
+  }

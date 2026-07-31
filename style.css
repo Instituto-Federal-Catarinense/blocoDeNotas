@@ -10,9 +10,34 @@ body {
     margin: 0;
 }
 
+body.modo-rosa {
+    background-color: rgb(235, 179, 188);
+}
+
+body.modo-rosa h1{
+    color:rgb(231, 92, 115);
+}
+
+body.modo-rosa .container {
+    background-color: rgb(254, 212, 219);
+}
+
+body.modo-rosa button {
+    background-color: rgb(247, 151, 183);
+    border-radius: 30px;
+    border-color:rgb(231, 92, 115);
+    color:rgb(75, 24, 32);
+}
+
+body.modo-rosa #blocoDeNotas:focus {
+     outline: none;
+    border-color: rgb(231, 92, 115);
+    box-shadow: 0 0 5px rgba(231, 92, 115, 0.5);
+}
+
 /* O contêiner principal que centraliza nosso conteúdo */
 .container {
-    background-color: #ffffff;
+    background-color: #cbddee;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -47,4 +72,17 @@ p {
     outline: none;
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#btnModoRosa {
+    position: absolute;
+    left: 100px;
+    bottom: 100px;
+}
+
+button {
+    border-radius: 30px;
+    padding: 10px;
+    background-color: #7fbbfb;
+    border-color: #3391f6;
 }

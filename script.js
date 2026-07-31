@@ -8,6 +8,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
     const blocoDeNotas = document.getElementById('blocoDeNotas');
+    const btnlimparnota = document.getElementById('limparnota');
+    const btnsalvar = document.getElementById('btnsalvar');
+    const btndark = document.getElementById('btndark');
+
+    // BEll. criar evento para limpar bloco de notas
+    btnlimparnota.addEventListener('click', ()=> {
+        
+        blocoDeNotas.value = '';
+        localStorage.removeItem('minhaNota');
+        console.log('Notas limpas e removidas do LocalStorage');
+
+    });
 
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
@@ -15,13 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // que persistem mesmo depois que o navegador é fechado.
     // Usamos 'localStorage.getItem()' para buscar um item salvo.
     // Aqui, estamos procurando por um item que salvamos com a chave 'minhaNota'.
-    const notaSalva = localStorage.getItem('minhaNota');
+    const minhaNota = localStorage.getItem('minhaNota');
 
     // Verificamos se encontramos alguma nota salva.
-    if (notaSalva) {
-        // Se 'notaSalva' não for nulo (ou seja, existe algo salvo),
+    if (minhaNota) {
+        // Se 'minhaNota' não for nulo (ou seja, existe algo salvo),
         // nós colocamos o valor salvo de volta no nosso 'blocoDeNotas'.
-        blocoDeNotas.value = notaSalva;
+        blocoDeNotas.value = minhaNota;
     }
 
     // 3. ADICIONANDO UM 'EVENTLISTENER'
@@ -34,7 +46,23 @@ document.addEventListener('DOMContentLoaded', () => {
     //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
     //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
     //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
+
+    // Personalizar o estilo da página
+
+    btndark.addEventListener('click', function() {
+        if (btndark) {
+            btndark=='black'
+        }
+        else{
+            btndark=='#f0f2f5'
+        }
+        
+
+    });
+
+    // Salvar pelo botão
+
+    btnsalvar.addEventListener('click', () => {
         // 4. SALVANDO DADOS NO LOCALSTORAGE
         // -----------------------------------
         // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas

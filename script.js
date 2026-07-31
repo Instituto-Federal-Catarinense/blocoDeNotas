@@ -8,6 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
     const blocoDeNotas = document.getElementById('blocoDeNotas');
+    const btnApagarNotas = document.getElementById('apagarNotas');
+    const btnSalvarNotas = document.getElementById('salvarNotas')
+    
+    // baguio pa remover quando o botao de apagar é clickado veyr
+    btnApagarNotas.addEventListener('click', () => {
+        blocoDeNotas.value = '';
+        localStorage.removeItem('minhaNota');
+        console.log("Notas Limpas");
+    });
 
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
@@ -34,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
     //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
     //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
+    btnSalvarNotas.addEventListener('click', () => {
         // 4. SALVANDO DADOS NO LOCALSTORAGE
         // -----------------------------------
         // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas
@@ -47,7 +56,27 @@ document.addEventListener('DOMContentLoaded', () => {
         //     que está atualmente na área de texto.
         localStorage.setItem('minhaNota', blocoDeNotas.value);
 
+
         console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
     });
-
+    // botão que aumenta e diminui o tamanho do bloco de notas
+    const btnAumentarFonte = document.getElementById('aumentarFonte');
+    const btnDiminuirFonte = document.getElementById('diminuirFonte');
+    btnAumentarFonte.addEventListener('click', () => {
+        const currentSize = parseFloat(getComputedStyle(blocoDeNotas).fontSize);
+        blocoDeNotas.style.fontSize = (currentSize + 2) + 'px';
+    });
+    btnDiminuirFonte.addEventListener('click', () => {
+    const currentSize = parseFloat(getComputedStyle(blocoDeNotas).fontSize);
+    blocoDeNotas.style.fontSize = (currentSize - 2) + 'px';
+    });
+    //botão aleatoriza a cor do site
+    const botaoDasCor = document.getElementById('aleatorizarCor')
+    botaoDasCor.addEventListener('click', () => {
+        const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        document.body.style.backgroundColor = randomColor;
+        //fazer o h1 mudar de cor também
+        const titulo = document.querySelector('h1');
+        titulo.style.color = randomColor;
+    });
 });

@@ -48,3 +48,17 @@ p {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
+button{
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+button:hover{
+    padding: 12px;
+    font-size: 15px;
+}

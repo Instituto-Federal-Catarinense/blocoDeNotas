@@ -1,5 +1,5 @@
 /* Estilos gerais para a página */
-body {
+body{
     font-family: sans-serif;
     background-color: #f0f2f5;
     color: #333;
@@ -47,4 +47,25 @@ p {
     outline: none;
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#btnLimparNotas{
+    font-size: 20px;
+    color: #740d22;
+    border-radius: 6px;
+}
+#btnSalvarNotas{
+    font-size: 20px;
+    color: #0d741e;
+    border-radius: 6px;
+}
+
+#themeButton{
+    font-size: 17px;
+    border-radius: 6px
+}
+
+body.escuro{
+    background-color: #000000e1;
+    color: white;
 }

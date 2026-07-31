@@ -1,7 +1,7 @@
 /* Estilos gerais para a página */
 body {
     font-family: sans-serif;
-    background-color: #f0f2f5;
+    background-color: #b37142;
     color: #333;
     display: flex;
     justify-content: center;
@@ -22,11 +22,11 @@ body {
 }
 
 h1 {
-    color: #007bff;
+    color: #277331;
 }
 
 p {
-    color: #6c757d;
+    color: #008e55;
     margin-bottom: 20px;
 }
 
@@ -48,3 +48,4 @@ p {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+

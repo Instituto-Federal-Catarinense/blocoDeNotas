@@ -48,3 +48,18 @@ p {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+body.dark p{
+    color: #ff9900;
+}
+body.dark h1{
+    color: #ff5100;
+}
+body.dark .container{
+    background-color: #5e0435;
+}
+body.dark{
+    background-color: #75204f;
+}
+body.dark button{
+    border-radius: 20px;
+}

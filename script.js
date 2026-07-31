@@ -7,8 +7,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------
     // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
+    const body = document.getElementById('body')
     const blocoDeNotas = document.getElementById('blocoDeNotas');
-
+    const btnLimparNotas = document.getElementById('btnLimparNotas');
+    const btnSalvarNotas = document.getElementById('btnSalvarNotas');
+    const btnPersonalizarNotas = document.getElementById('btnPersonalizarNotas');
+    // Adicionamos um evento de clique ao botão para Limpar as notas
+    btnLimparNotas.addEventListener('click', () => {
+        // Quando o botão é clicado, Limpamos o conteúdo do bloco de notas
+        blocoDeNotas.value = '';
+        // E também removemos a nota salva do LocalStorage
+        localStorage.removeItem('minhaNota');
+        // Mensagem de configuração no console
+        console.log('Notas Limpas e removidas do LocalStorage!');
+    });
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
     // O 'localStorage' é um recurso do navegador que permite salvar informações
@@ -34,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
     //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
     //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
+    btnSalvarNotas.addEventListener('click', () => {
         // 4. SALVANDO DADOS NO LOCALSTORAGE
         // -----------------------------------
         // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas
@@ -49,5 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
     });
-
+    btnPersonalizarNotas.addEventListener('click', () => {
+        if(body.classList == 'dark'){
+        body.className = 'none'
+        }else{
+        body.className = 'dark'
+        }
+    })
 });

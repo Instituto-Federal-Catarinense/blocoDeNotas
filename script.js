@@ -8,6 +8,40 @@ document.addEventListener('DOMContentLoaded', () => {
     // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
     const blocoDeNotas = document.getElementById('blocoDeNotas');
+    const SalvarNotas = document.getElementById('SalvarNotas');
+    const Personalizar = document.getElementById('Personalizar');
+    const Resetar = document.getElementById('Resetar');
+    const btnLimparNotas = document.getElementById('LimparNotas');
+
+    SalvarNotas.addEventListener('click', () =>{
+
+        localStorage.setItem('minhaNota', blocoDeNotas.value); 
+
+        console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
+    });
+
+    // Adicionando um evento de clique ao botão "Limpar Notas"
+    btnLimparNotas.addEventListener('click', () =>{
+        // Quando o botão é clicado, limpamos o conteúdo do bloco de notas.
+        blocoDeNotas.value = ''; // Define o valor do <textarea> como uma string vazia.
+        // Também removemos a nota salva do localStorage.
+        localStorage.removeItem('minhaNota'); // Remove o item "minhaNota" do localStorage.
+        console.log("Notas Limpas!"); // Mensagem no console para confirmar que as notas foram limpas.
+    });
+
+    Personalizar.addEventListener('click', () =>{
+       document.getElementById('background').style.backgroundColor = '#000000';
+       
+
+        console.log("Personalização Feita"); // Uma mensagem no console para fins de depuração.
+    });
+
+    Resetar.addEventListener('click', () =>{
+        document.getElementById('background').style.backgroundColor = '';
+ 
+         console.log("Personalização Feita"); // Uma mensagem no console para fins de depuração.
+     });
+
 
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
@@ -34,20 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
     //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
     //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
     //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
-        // 4. SALVANDO DADOS NO LOCALSTORAGE
-        // -----------------------------------
-        // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas
-        // e o salvamos no localStorage.
-        // Usamos 'localStorage.setItem()' para isso.
-        //
-        // Parâmetros do setItem:
-        //   - O primeiro é a CHAVE (o "nome" do nosso dado). Usaremos a mesma chave 'minhaNota'.
-        //   - O segundo é o VALOR que queremos salvar. 'blocoDeNotas.value' contém o texto
-        //     que está atualmente na área de texto.
-        localStorage.setItem('minhaNota', blocoDeNotas.value);
-
-        console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
-    });
+   
 
 });
